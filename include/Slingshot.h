@@ -21,10 +21,29 @@ public:
 
     bool pullBack(int amount) {
         if (amount < 0) return false;
-        i_tension = (i_tension + amount > MAX_TENSION) ? MAX_TENSION : i_tension + amount;
+        i_tension = (i_tension + amount > MAX_TENSION) ? MAX_TENSION : i_tension + amount; //If the tention and pull back is larger than the max tention set it to max tention else just add them togther
         return true;
     }
 
+    int checkMax(int amount) {
+
+        if (amount + i_tension > MAX_TENSION){
+        
+            return MAX_TENSION;
+        }
+        else {
+
+            return amount + i_tension;
+        }
+
+    }
+
+
+    void setTention(int amount) {
+
+        i_tension = amount;
+
+    }
     int getTension() const { return i_tension; }
     std::string getBirdType() const { return str_birdType; }
 

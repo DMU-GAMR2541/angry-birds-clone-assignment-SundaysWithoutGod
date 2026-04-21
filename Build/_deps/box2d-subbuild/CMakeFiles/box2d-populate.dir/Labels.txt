@@ -1,0 +1,14 @@
+# Target labels
+ box2d-populate
+# Source files and their labels
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/box2d-populate
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/6f8fee98ed35a849a0709867669d3415/box2d-populate.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/a94aa01054c0754a716b5f93847c7aeb/box2d-populate-complete.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-build.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-configure.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-download.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-install.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-mkdir.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-patch.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-test.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-subbuild/CMakeFiles/370bc4a63034a77d951e0c6feb482e3f/box2d-populate-update.rule

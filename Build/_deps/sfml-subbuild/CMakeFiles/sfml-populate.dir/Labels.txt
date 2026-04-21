@@ -1,0 +1,14 @@
+# Target labels
+ sfml-populate
+# Source files and their labels
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/sfml-populate
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/6206d36e9c64308b3ed3ae8523124966/sfml-populate.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/43958b9845dc7aaea40814612b491c2b/sfml-populate-complete.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-build.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-configure.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-download.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-install.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-mkdir.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-patch.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-test.rule
+C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-subbuild/CMakeFiles/4dd420dd03c326958f1eaf3f02c996b7/sfml-populate-update.rule
