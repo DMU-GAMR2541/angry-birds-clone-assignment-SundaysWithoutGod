@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <box2d/box2d.h>
 #include <iostream>
+#include "Bird.h"
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -12,6 +13,10 @@ int main() {
 
     //Can set a definition for PI.
     const float PI = 3.1415927;
+
+    Bird birdie;
+    birdie.setSprite("../assets/Ang_Birds/RedBird.png");
+
 
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
@@ -103,7 +108,7 @@ int main() {
                     b2_ballBody->SetAngularVelocity(0);
 
                     // Apply impulse (X-axis, Y-axis) Negative Y is UP in Box2D because gravity is positive.
-                    b2_ballBody->ApplyLinearImpulse(b2Vec2(5.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
+                    b2_ballBody->ApplyLinearImpulse(b2Vec2(10.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
 
                     std::cout << "Firing!!!!" << std::endl;
                 }
@@ -133,6 +138,7 @@ int main() {
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
+        window.draw(birdie.getSprite());
 
         window.display();
     }
