@@ -44,6 +44,14 @@ public:
         i_tension = amount;
 
     }
+
+    //Set enemy type
+    void setBirdType(std::string birdTypein) {
+
+        str_birdType = birdTypein;
+
+    }
+
     int getTension() const { return i_tension; }
     std::string getBirdType() const { return str_birdType; }
 
