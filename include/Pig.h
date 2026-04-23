@@ -4,15 +4,18 @@ class Pig : public DynamicObject
 {
 private:
 
-	//Health--Int
-	//Detroyed--Bool
-	//Damage Taken--Int
-	//
+	int i_Health;
+	bool b_Destroyed;
+	
 
 public:
 
 	Pig() = default;
-	~Pig() = default;
+	//~Pig() = default;
+	~Pig() {
 
+		std::cout << "Pig DEATH" << std::endl;
+	};
+	
 };
 

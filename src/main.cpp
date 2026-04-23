@@ -2,6 +2,7 @@
 #include <box2d/box2d.h>
 #include <iostream>
 #include "Bird.h"
+#include "Pig.h"
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -16,7 +17,7 @@ int main() {
 
     Bird birdie;
     birdie.setSprite("../assets/Ang_Birds/RedBird.png");
-
+    { Pig Porkie; }
 
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity

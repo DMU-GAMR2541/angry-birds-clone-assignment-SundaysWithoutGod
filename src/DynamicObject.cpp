@@ -1,6 +1,6 @@
 #include "DynamicObject.h"
 
-DynamicObject::DynamicObject(std::string location)
+DynamicObject::DynamicObject(std::string location, b2Vec2 PosIn)
 { 
 
 	if (!texture.loadFromFile(location)) {
@@ -12,7 +12,11 @@ DynamicObject::DynamicObject(std::string location)
 		sprite.setTexture(texture);
 	}
 
+	Pos = PosIn;
+
 }
+
+
 
 void DynamicObject::setSprite(std::string location)
 {
