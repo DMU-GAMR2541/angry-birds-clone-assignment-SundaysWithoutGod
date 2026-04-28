@@ -6,7 +6,7 @@
 
 int main() {
     // --- 1. WINDOW SETUP ---
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Annoyed_Flocks");
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "Annoyed_Flocks");
     window.setFramerateLimit(60);
 
     //Box2D works in meters. SFML works in pixels.
@@ -17,6 +17,8 @@ int main() {
 
     Bird birdie;
     birdie.setSprite("../assets/Ang_Birds/RedBird.png");
+    Pig smallPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.5f, 0.5f));
+    Pig medPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
     { Pig Porkie; }
 
     //setup world.
@@ -140,7 +142,8 @@ int main() {
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
         window.draw(birdie.getSprite());
-
+        window.draw(smallPig.getSprite());
+        window.draw(medPig.getSprite());
         window.display();
     }
 

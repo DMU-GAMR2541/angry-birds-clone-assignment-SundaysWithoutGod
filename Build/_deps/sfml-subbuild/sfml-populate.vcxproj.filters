@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-mkdir.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-download.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-update.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-patch.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-configure.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-build.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-install.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\4dd420dd03c326958f1eaf3f02c996b7\sfml-populate-test.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\66d708eb41d9f91895fab49f3a180ac4\sfml-populate-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\43958b9845dc7aaea40814612b491c2b\sfml-populate-complete.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\bd75a0935999d137ef9910fee3095343\sfml-populate-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\6206d36e9c64308b3ed3ae8523124966\sfml-populate.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\6ce380cab8ca8a75a15d3f30d22a206a\sfml-populate.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\sfml-populate" />
+    <None Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\sfml-subbuild\CMakeFiles\sfml-populate" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{05E5A9B9-C9FA-3DE2-A4B5-A64149CFBBE5}</UniqueIdentifier>
+      <UniqueIdentifier>{DE128B9F-256A-3908-97EB-53E374BA05D6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

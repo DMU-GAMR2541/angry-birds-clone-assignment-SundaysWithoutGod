@@ -1,27 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\test_src\RunTests.cpp">
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\Bird.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\Catapult.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\DynamicObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\NonInteractable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\Pig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\StaticObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\src\UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\test_src\RunTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Enemy.h">
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Bird.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Slingshot.h">
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Catapult.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\DynamicObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\NonInteractable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Pig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\Slingshot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\StaticObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\include\UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{E2A23530-7491-38A3-99C0-C241F17A1815}</UniqueIdentifier>
+      <UniqueIdentifier>{1930E32C-3221-3397-ADC4-486ED68EA209}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{A98FB249-80D5-3385-A005-388DBE2FDC29}</UniqueIdentifier>
+      <UniqueIdentifier>{A3A750FF-3BBD-3728-9D18-61F1A074C905}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,32 +1,34 @@
 #include "DynamicObject.h"
 
-DynamicObject::DynamicObject(std::string location, b2Vec2 PosIn)
+DynamicObject::DynamicObject(std::string location, sf::Vector2f PosIn, sf::Vector2f scale)
 { 
 
-	if (!texture.loadFromFile(location)) {
+	if (!spriteTexture.loadFromFile(location)) {
 		std::cout << "Texture NOT loadiing" << std::endl;
 
 	}
 	else
 	{
-		sprite.setTexture(texture);
+		spriteRender.setTexture(spriteTexture);
+		//setting the origins-taking it from the corner to the center point
+		spriteRender.setOrigin(spriteRender.getLocalBounds().getSize().x/2.0f, spriteRender.getLocalBounds().getSize().y/2.0f);
 	}
-
-	Pos = PosIn;
-
+	
+	spriteRender.setScale(scale);
+	spriteRender.setPosition(sf::Vector2f(PosIn.x, PosIn.y));
 }
 
 
 
 void DynamicObject::setSprite(std::string location)
 {
-	if (!texture.loadFromFile(location)) {
+	if (!spriteTexture.loadFromFile(location)) {
 		std::cout << "Texture NOT loadiing" << std::endl;
 
 	}
 	else
 	{
-		sprite.setTexture(texture);
+		spriteRender.setTexture(spriteTexture);
 	}
 
 }

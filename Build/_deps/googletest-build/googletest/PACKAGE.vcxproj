@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4FA2AD37-C16B-3685-9BC4-240632ADF998}</ProjectGuid>
+    <ProjectGuid>{CF30AC8D-B410-3B6A-85FB-E904151529DD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -71,7 +71,7 @@
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-cd C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
+cd C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -89,7 +89,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-cd C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
+cd C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -107,7 +107,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-cd C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
+cd C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -125,7 +125,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-cd C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
+cd C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -140,7 +140,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\CMakeFiles\d32b8813d7c54fbf12c009867d881df9\PACKAGE_force.rule">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\CMakeFiles\543fb59030c4770ce0b8db657e4a6a21\PACKAGE_force.rule">
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -153,7 +153,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
@@ -168,7 +168,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
@@ -183,7 +183,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
@@ -198,20 +198,20 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\CMakeFiles\PACKAGE_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\ZERO_CHECK.vcxproj">
-      <Project>{E496AFC8-90FA-337A-AF37-2A4EA1F3AA1D}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\ZERO_CHECK.vcxproj">
+      <Project>{40B1EB33-F05A-3B92-9251-A3EA4B3AB805}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\ALL_BUILD.vcxproj">
-      <Project>{78057468-9740-3283-AAED-B547DFB95D62}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-build\googletest\ALL_BUILD.vcxproj">
+      <Project>{88E1CA2D-A75A-3BE2-ABB1-C52E22AE159B}</Project>
       <Name>ALL_BUILD</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

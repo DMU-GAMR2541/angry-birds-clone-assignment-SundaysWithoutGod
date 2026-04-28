@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-src\googletest\src\gtest_main.cc">
+    <ClCompile Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-src\googletest\src\gtest_main.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-src\googletest\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\googletest-src\googletest\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{A98FB249-80D5-3385-A005-388DBE2FDC29}</UniqueIdentifier>
+      <UniqueIdentifier>{A3A750FF-3BBD-3728-9D18-61F1A074C905}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

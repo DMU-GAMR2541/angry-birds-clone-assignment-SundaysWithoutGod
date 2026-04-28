@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{78057468-9740-3283-AAED-B547DFB95D62}</ProjectGuid>
+    <ProjectGuid>{88E1CA2D-A75A-3BE2-ABB1-C52E22AE159B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-src\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-src\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -120,12 +120,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,12 +133,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -146,12 +146,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod -BC:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build --check-stamp-file C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,46 +159,46 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\ZERO_CHECK.vcxproj">
-      <Project>{E496AFC8-90FA-337A-AF37-2A4EA1F3AA1D}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\ZERO_CHECK.vcxproj">
+      <Project>{40B1EB33-F05A-3B92-9251-A3EA4B3AB805}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\src\box2d.vcxproj">
-      <Project>{FC400CFB-9791-3120-898C-47A0B9AA9863}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\src\box2d.vcxproj">
+      <Project>{F14A8B08-DEA4-329F-9FC9-B1878706F6FF}</Project>
       <Name>box2d</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\glad\glad.vcxproj">
-      <Project>{C976809E-BFD6-3DBA-8C20-3BF93B0C9DB9}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\glad\glad.vcxproj">
+      <Project>{8DC4B6F5-F2B7-366D-A4B4-B9463A45AB85}</Project>
       <Name>glad</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\glfw\glfw.vcxproj">
-      <Project>{45E23622-EBE4-39B0-9334-D9D45E2D5801}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\glfw\glfw.vcxproj">
+      <Project>{E2D62CD1-E73D-33E4-8DA3-A8B82EEF44ED}</Project>
       <Name>glfw</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\imgui\imgui.vcxproj">
-      <Project>{82654C0E-F841-3C06-8FC0-A14550C49767}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\imgui\imgui.vcxproj">
+      <Project>{41879DF3-001B-3178-A198-3928C69AE3BF}</Project>
       <Name>imgui</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\sajson\sajson.vcxproj">
-      <Project>{27441ECF-C6F2-3C28-AE56-76CE02A3967E}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\extern\sajson\sajson.vcxproj">
+      <Project>{34A46642-6A12-3BAB-A80E-E9ED05B763DD}</Project>
       <Name>sajson</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\testbed\testbed.vcxproj">
-      <Project>{02CEF811-B96B-3D8C-B10B-E8FEE7D0D431}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\testbed\testbed.vcxproj">
+      <Project>{8B535625-889A-3E47-B8D7-A492404F1A8C}</Project>
       <Name>testbed</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\p2602725\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\unit-test\unit_test.vcxproj">
-      <Project>{4305B976-9C29-3547-8796-E7F0864CAB77}</Project>
+    <ProjectReference Include="C:\Users\Student\Documents\GitHub\angry-birds-clone-assignment-SundaysWithoutGod\Build\_deps\box2d-build\unit-test\unit_test.vcxproj">
+      <Project>{5B77CF86-CCAF-31E0-959F-062A06A4EBC6}</Project>
       <Name>unit_test</Name>
     </ProjectReference>
   </ItemGroup>

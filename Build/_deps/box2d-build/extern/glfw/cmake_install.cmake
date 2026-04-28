@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/extern/glfw
+# Install script for directory: C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/box2d-src/extern/glfw
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

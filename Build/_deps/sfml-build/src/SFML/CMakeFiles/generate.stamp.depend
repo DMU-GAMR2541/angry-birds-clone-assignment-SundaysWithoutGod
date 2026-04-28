@@ -1,5 +1,5 @@
 # CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeParseArguments.cmake
-C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-src/cmake/CompilerWarnings.cmake
-C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-src/cmake/Macros.cmake
-C:/Users/p2602725/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-src/src/SFML/CMakeLists.txt
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeParseArguments.cmake
+C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-src/cmake/CompilerWarnings.cmake
+C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-src/cmake/Macros.cmake
+C:/Users/Student/Documents/GitHub/angry-birds-clone-assignment-SundaysWithoutGod/Build/_deps/sfml-src/src/SFML/CMakeLists.txt

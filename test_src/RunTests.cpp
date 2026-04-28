@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "Enemy.h"
 #include "Slingshot.h"
+#include "Pig.h"
 
 /// <summary>
 ///Taken from the GoogleTest primer. 
@@ -92,6 +93,15 @@ TEST_F(EnemyTest, LethalDamagePopsPig) {
     //Test to see if the enemy is dead after taking damage
     enemy->takeDamage(60);
     EXPECT_TRUE(enemy->checkIfPopped());
+}
+
+TEST(Pig, posTest) 
+{
+  //Setting up a sprite, getting the position of the sprite and setting the position then running a test to see if the position equals what I set it to.
+   Pig medPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
+   EXPECT_EQ(medPig.getSprite().getPosition().x, 500.0f);
+   
+
 }
 
 
