@@ -16,12 +16,16 @@ private:
 
 	//Box2D Dynamic 
 	b2Vec2 b2d_Pos;//Position-
-	b2BodyDef b2d_bodyDef;//Have a object body find our what's its doing or define what it is
+	b2BodyDef b2d_bodyDef;//Have a object body find out what's its doing or define what it is
 	b2FixtureDef b2d_fixtureDef;//Values that are attached to the object body like density
-	b2Body* b2d_Body;//The actuall body object
-	b2CircleShape b2d_dynamicShape;//the shell around the image that would be the 'collider'
+	b2Body* b2d_Body;//The actual body object
+	b2CircleShape b2d_dynamicShape;//the shell around the image that would be the 'collider'#
+	std::shared_ptr<b2World> shared_world;
 
-	
+	//Fixtures non-defined
+	float density;
+	float friction;
+	float restitution;
 	
 public:
 	
@@ -33,13 +37,12 @@ public:
 
 		std::cout << "DEATH" << std::endl;
 	};
-	//Pos getter and setters
 
 	//passing a in a string that will be the location in the file  of this sprite instance
 	DynamicObject(std::string location, sf::Vector2f PosIn, sf::Vector2f scale);
 
 	//Box2d constructor
-	DynamicObject(b2World ObjectsWorld, std::string location, sf::Vector2f PosIn, sf::Vector2f scale);
+	DynamicObject(b2World& ObjectsWorld, std::string location, sf::Vector2f PosIn, sf::Vector2f scale);
 
 	void  setSprite(std::string location);
 
@@ -49,6 +52,10 @@ public:
 		return spriteRender;
 
 	}
+
+	void updateSprite();
+
+	void setFixtures(float den, float fric, float rest);
 
 
 };

@@ -20,7 +20,7 @@ DynamicObject::DynamicObject(std::string location, sf::Vector2f PosIn, sf::Vecto
 
 
 
-DynamicObject::DynamicObject(b2World ObjectsWorld, std::string location, sf::Vector2f PosIn, sf::Vector2f scale)
+DynamicObject::DynamicObject(b2World& ObjectsWorld, std::string location, sf::Vector2f PosIn, sf::Vector2f scale)
 {
 	if (!spriteTexture.loadFromFile(location)) {
 		std::cout << "Texture NOT loadiing" << std::endl;
@@ -39,10 +39,25 @@ DynamicObject::DynamicObject(b2World ObjectsWorld, std::string location, sf::Vec
 
 
 	//Box2D
-	b2d_bodyDef.type = b2_dynamicBody;
-	b2d_bodyDef.position = b2d_Pos;
+	b2d_bodyDef.type = b2_dynamicBody; //Adding the body
+	b2d_bodyDef.position = b2Vec2(PosIn.x/SCALE, PosIn.y/SCALE);//Adding position
+	
 	//Creates the bodies in the world
 	b2d_Body = ObjectsWorld.CreateBody(&b2d_bodyDef);
+
+	//Getting the radius of the sprite and then converting to box2d
+	b2d_dynamicShape.m_radius = (spriteRender.getLocalBounds().width / 2) / SCALE;
+
+	//Box2D	 Fixtures
+	b2d_fixtureDef.shape = &b2d_dynamicShape;
+	
+	//Default fixtures
+	b2d_fixtureDef.density = 2.0f;
+	b2d_fixtureDef.friction = 0.5f;
+	b2d_fixtureDef.restitution = 0.4f;
+
+	b2d_Body->CreateFixture(&b2d_fixtureDef);
+
 
 
 }
@@ -57,5 +72,13 @@ void DynamicObject::setSprite(std::string location)
 	{
 		spriteRender.setTexture(spriteTexture);
 	}
+
+}
+
+void DynamicObject::updateSprite()
+{
+	//Setting the position from SFML to box2D
+	spriteRender.setPosition(sf::Vector2(b2d_Body->GetPosition().x * SCALE, b2d_Body->GetPosition().y * SCALE));
+	
 
 }

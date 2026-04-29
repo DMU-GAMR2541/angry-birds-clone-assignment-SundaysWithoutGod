@@ -103,6 +103,13 @@ TEST(Pig, posTest)
    
 
 }
+TEST(Pig, scaleTest) 
+{
+    //Testing to see if the scale is equal 
+    Pig smallPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.5f, 0.5f));
+    EXPECT_EQ(smallPig.getSprite().getScale().y, 0.5f);
+
+}
 
 
 //Testing to see if  the enemy pig has taken enough damage to die

@@ -14,16 +14,20 @@ int main() {
 
     //Can set a definition for PI.
     const float PI = 3.1415927;
+    
+    //setup world.
+    b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
+    b2World world(b2_gravity);
+    
 
     Bird birdie;
     birdie.setSprite("../assets/Ang_Birds/RedBird.png");
     Pig smallPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.5f, 0.5f));
     Pig medPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
+    Pig largePig(world, "../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f));
     { Pig Porkie; }
 
-    //setup world.
-    b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
-    b2World world(b2_gravity);
+ 
 
     //Setup ground for the circle to move / bounce on.
     //Needs to have a body definition and a body. We use a raw pointer for the b2Body as Box2d does the management itself.
@@ -144,6 +148,8 @@ int main() {
         window.draw(birdie.getSprite());
         window.draw(smallPig.getSprite());
         window.draw(medPig.getSprite());
+        //largePig.updateSprite();
+        //window.draw(largePig.getSprite());
         window.display();
     }
 
