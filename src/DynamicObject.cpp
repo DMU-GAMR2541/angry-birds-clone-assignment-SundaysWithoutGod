@@ -75,6 +75,18 @@ void DynamicObject::setSprite(std::string location)
 
 }
 
+void DynamicObject::setFixtures(float den, float fric, float rest) {
+	
+	//den = b2d_fixtureDef.density;
+	//fric = b2d_fixtureDef.friction;
+	//rest = b2d_fixtureDef.restitution;
+	b2d_fixtureDef.density = den;
+	b2d_fixtureDef.friction = fric;
+	b2d_fixtureDef.restitution = rest;
+
+
+};
+
 void DynamicObject::updateSprite()
 {
 	//Setting the position from SFML to box2D

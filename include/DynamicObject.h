@@ -57,6 +57,13 @@ public:
 
 	void setFixtures(float den, float fric, float rest);
 
+	/*float getFixtures() 
+	{
+
+		return density, friction, restitution;
+
+	}*/
+
 
 };
 

@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "Enemy.h"
 #include "Slingshot.h"
+#include"DynamicObject.h"
 #include "Pig.h"
 
 /// <summary>
@@ -111,6 +112,13 @@ TEST(Pig, scaleTest)
 
 }
 
+TEST(Pig, Box2D)
+{
+    //Testing Dynamic scale
+    Pig largePig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f));
+    //EXPECT_EQ(largePig.updateSprite().);
+
+}
 
 //Testing to see if  the enemy pig has taken enough damage to die
 TEST(DeathTest, SecondTest) {
