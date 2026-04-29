@@ -22,11 +22,12 @@ int main() {
 
     Bird birdie;
     birdie.setSprite("../assets/Ang_Birds/RedBird.png");
-    Pig smallPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.5f, 0.5f));
-    Pig medPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
+    Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f));
+    Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
     Pig largePig(world, "../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f));
     std::cout << "Before largepig fixture" << std::endl;
     largePig.setFixtures(7.0f, 0.3f, 0.2f);
+    medPig.setFixtures(50.0f, 0.5f, 0.3f);
     std::cout << "After largepig fixture"<<std::endl;
     { Pig Porkie; }
 
@@ -149,7 +150,9 @@ int main() {
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
         window.draw(birdie.getSprite());
+        smallPig.updateSprite();
         window.draw(smallPig.getSprite());
+        medPig.updateSprite();
         window.draw(medPig.getSprite());
         largePig.updateSprite();
         window.draw(largePig.getSprite());
