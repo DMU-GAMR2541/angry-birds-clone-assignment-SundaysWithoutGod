@@ -4,8 +4,8 @@ class Bird : public DynamicObject
 {
 private:
 	bool b_Destroyed;
-	int i_Speed;
-	float i_Weight;
+	/*int i_Speed;
+	float i_Weight;*/
 	int i_DamageGiven;
 
 
