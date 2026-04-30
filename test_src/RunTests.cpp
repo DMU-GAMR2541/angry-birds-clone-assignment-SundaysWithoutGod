@@ -3,6 +3,7 @@
 #include "Slingshot.h"
 #include"DynamicObject.h"
 #include "Pig.h"
+#include"box2d/box2d.h"
 
 /// <summary>
 ///Taken from the GoogleTest primer. 
@@ -12,13 +13,20 @@
 class EnemyTest : public testing::Test {
 public:
     std::unique_ptr<Enemy> enemy;
+    std::shared_ptr<b2World> shared_world;
+    //b2Vec2 gravity; // Earth-like gravity
+    //b2World world;
+
 protected:
     // You can remove any or all of the following functions if their bodies would
     // be empty.
-
+    
+    //EnemyTest() = default;
+    
     EnemyTest() {
         // You can do set-up work for each test here.
-                    
+        //gravity = b2Vec2(0, 9.8f);
+        //world.SetGravity(gravity);
     }
 
     ~EnemyTest() override {
@@ -32,7 +40,8 @@ protected:
         // Code here will be called immediately after the constructor (right
         // before each test).
         enemy = std::make_unique<Enemy>(50); // All enemnies in this test suite start with 50 HP.
-                    
+
+        //shared_world = std::make_shared<b2World>(gravity);
     }
 
     void TearDown() override {
@@ -112,12 +121,26 @@ TEST(Pig, scaleTest)
 
 }
 
-TEST(Pig, Box2D)
-{
-    //Testing Dynamic scale
-    Pig largePig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f));
-    //EXPECT_EQ(largePig.updateSprite().);
+//TEST(Pig, Box2D)
+//{
+//    b2Vec2 gravity(0, 9.8f);
+//    b2World world(gravity);
+//    //Testing to see if the fixtures are working
+//    Pig largePig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f,0.0f);
+//    //EXPECT_EQ(largePig.
+//
+//}
 
+
+
+TEST(Pig, Health_Pig)
+{
+    //Testing to see of the getters and setters for the health functions in pig is working 
+    b2Vec2 gravity(0, 9.8f);
+    b2World world(gravity);
+    Pig largePig(world,"../assets/Ang_Birds/TesPig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
+    largePig.setHealth(100);
+    EXPECT_EQ(largePig.getHealth(), 100);
 }
 
 //Testing to see if  the enemy pig has taken enough damage to die

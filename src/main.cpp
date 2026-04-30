@@ -20,14 +20,15 @@ int main() {
     b2World world(b2_gravity);
     
 
-    Bird birdie;
-    birdie.setSprite("../assets/Ang_Birds/RedBird.png");
-    Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f));
-    Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
-    Pig largePig(world, "../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f));
+    Bird birdie(world, ("../assets/Ang_Birds/RedBird.png"), sf::Vector2f(100.f,100.f), sf::Vector2f(2.0f,2.0f), 40.0f, 0.5f, 0.2f);
+    //birdie.setSprite("../assets/Ang_Birds/RedBird.png");
+    Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f), 20.0f, 0.3f, 1.0f);
+    Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
+    Pig largePig(world, "../assets/Ang_Birds/TesPig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
+    largePig.setHealth(100);
     std::cout << "Before largepig fixture" << std::endl;
-    largePig.setFixtures(7.0f, 0.3f, 0.2f);
-    medPig.setFixtures(50.0f, 0.5f, 0.3f);
+    //largePig.setFixtures(7.0f, 0.3f, 0.2f);
+    //medPig.setFixtures(50.0f, 0.5f, 0.3f);
     std::cout << "After largepig fixture"<<std::endl;
     { Pig Porkie; }
 
@@ -149,6 +150,7 @@ int main() {
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
+        birdie.updateSprite();
         window.draw(birdie.getSprite());
         smallPig.updateSprite();
         window.draw(smallPig.getSprite());

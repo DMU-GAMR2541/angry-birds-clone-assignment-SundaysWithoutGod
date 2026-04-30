@@ -42,7 +42,7 @@ public:
 	DynamicObject(std::string location, sf::Vector2f PosIn, sf::Vector2f scale);
 
 	//Box2d constructor
-	DynamicObject(b2World& ObjectsWorld, std::string location, sf::Vector2f PosIn, sf::Vector2f scale);
+	DynamicObject(b2World& ObjectsWorld, std::string location, sf::Vector2f PosIn, sf::Vector2f scale, float den, float fric, float rest);
 
 	void  setSprite(std::string location);
 

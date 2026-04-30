@@ -11,8 +11,13 @@ private:
 
 public:
 	Bird() = default;
-	~Bird() = default;
+	//~Bird() = default;
 
+	Bird(b2World& world, std::string birdLocation, sf::Vector2f birdPos, sf::Vector2f birdScale, float birdDen, float birdFric, float birdRest) : DynamicObject(world, birdLocation, birdPos, birdScale, birdDen, birdFric, birdRest) {};
 
+	~Bird() {
+
+		std::cout << "The bird has flown the coop" << std::endl;
+	};
 };
 
