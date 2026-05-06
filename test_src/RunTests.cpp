@@ -156,7 +156,7 @@ TEST(DeathTest, SecondTest) {
 
 //Testing to see if the pig will take damage to the health
 TEST(Pig, Damage) {
-
+    //RECORD THIS BEFORE CHANGING THEN REDO THE TEST
     Pig smallPig;
     smallPig.setHealth(70);
     smallPig.isHit(80);

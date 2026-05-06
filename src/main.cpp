@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <box2d/box2d.h>
 #include <iostream>
+#include"ContactListener.h"
 #include "Bird.h"
 #include "Pig.h"
 #include <list>
@@ -20,22 +21,28 @@ int main() {
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
     b2World world(b2_gravity);
+
+    // Create the listener instance.
+    ContactListener hit;
+
+    // Register it with the world
+    world.SetContactListener(&hit);
     
-    // A list that just contains the type bird
-    //std::list<std::shared_ptr<Bird>>birdTypes; //Shared pointers of the type bird
-    //for (int i = 0; i < 3; i++) {
-    //
-    //birdTypes.push_back(std::make_shared<Bird>(Bird(world, ("../assets/Ang_Birds/RedBird.png"), sf::Vector2f(100.f+(i*10), 100.f), sf::Vector2f(2.0f, 2.0f), 40.0f, 0.5f, 0.2f)));
-    //
-    //
-    //}
+     //A list that just contains the Pig types 
+    std::list<std::shared_ptr<Pig>>piggieTypes; //Shared pointers of the type bird
+    for (int i = 0; i < 3; i++) {
+    
+    piggieTypes.push_back(std::make_shared<Pig>(Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f)));
+    
+    
+    }
     
     
     Bird birdie(world, ("../assets/Ang_Birds/birdTest.png"), sf::Vector2f(150.f,367.f), sf::Vector2f(1.0f,1.0f), 40.0f, 0.5f, 0.2f);
     //birdie.setSprite("../assets/Ang_Birds/RedBird.png");
    // Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f), 20.0f, 0.3f, 1.0f);
   //  Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
-    Pig largePig(world, "../assets/Ang_Birds/TesPig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
+    Pig largePig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
     largePig.setHealth(100);
     std::cout << "Before largepig fixture" << std::endl;
     //largePig.setFixtures(7.0f, 0.3f, 0.2f);
@@ -116,10 +123,13 @@ int main() {
     sf_ballVisual.setFillColor(sf::Color::Yellow);
 
 
-    //
+    //Created floates with default values that can change the trajectory of the bird being launched 
     float impuleX = 5.0;
     float impuleY = -10.0;
 
+    //Creating an original position variable that can hold any of the birds original position.
+    b2Vec2 orginalPos = birdie.getPos();
+    
     // --- 7. MAIN LOOP ---
     while (window.isOpen()) {
         sf::Event event;
@@ -130,33 +140,37 @@ int main() {
             // INPUT HANDLING: Press SPACE to launch
             if (event.type == sf::Event::KeyPressed){
 
-
+                //Inputs to change the tragectory of the bird
                 if (event.key.code == sf::Keyboard::H) {
 
                     impuleX = impuleX + 2.0;
-
+                    std::cout << "X Value: " << impuleX << std::endl;
                 }
 
                 if (event.key.code == sf::Keyboard::J) {
 
                     impuleX = impuleX - 2.0;
+                    std::cout << "X Value: " << impuleX << std::endl;
 
                 }
+
                 if (event.key.code == sf::Keyboard::K) {
 
                     impuleY = impuleY + 2.0;
+                    std::cout << "Y Value: " << impuleY << std::endl;
 
                 }
 
                 if (event.key.code == sf::Keyboard::L) {
 
                     impuleY = impuleY - 2.0;
+                    std::cout << "Y Value: " << impuleY << std::endl;
 
                 }
                
                 if (event.key.code == sf::Keyboard::Space) {
                     // Reset position of the ball so that it can be fired again from its original poisition.
-                    birdie.getBody()->SetTransform(b2Vec2 (150.f/SCALE,367.f/SCALE), 0);
+                    birdie.getBody()->SetTransform(orginalPos, 0);
                     birdie.getBody()->SetLinearVelocity(b2Vec2(impuleX, impuleY));//--change these values iwth key press
                     birdie.getBody()->SetAngularVelocity(0);
 
@@ -175,6 +189,36 @@ int main() {
         // Update Physics
         world.Step(1.0f / 60.0f, 8, 3);
 
+        //
+        std::set<uintptr_t> s_p = hit.getPointer(); //Set of pointers to the pig ID's
+        for (auto pigIt = piggieTypes.begin(); pigIt != piggieTypes.end(); ) {
+
+            uintptr_t currentPigID = (*pigIt)->getBody()->GetUserData().pointer;
+
+            // Check if this pig's ID exists in the hit list
+            if (s_p.find(currentPigID) != s_p.end()) { //Check through all of the container for specific Id's
+
+                std::cout << currentPigID << " Destroyed" << std::endl;
+                
+                //
+                (*pigIt)->isHit();
+
+                
+
+                // Update the iterator by catching the return value of erase()
+                pigIt = piggieTypes.erase(pigIt); //Erase the pig from the set.
+
+
+            }
+            else {
+                // Only increment if we didn't erase anything
+                ++pigIt;
+            }
+        }
+
+
+
+
         //All of the visuals needs to be synced with the physics.
 
         sf_ballVisual.setPosition(b2_ballBody->GetPosition().x * SCALE, b2_ballBody->GetPosition().y * SCALE);
@@ -188,8 +232,13 @@ int main() {
         sf_plankVisual.setPosition(b2_plankBody->GetPosition().x * SCALE, b2_plankBody->GetPosition().y * SCALE);
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
+        
+        
+        
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
+
+        //Render the Pigs
 
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);

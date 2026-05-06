@@ -36,7 +36,7 @@ DynamicObject::DynamicObject(b2World& ObjectsWorld, std::string location, sf::Ve
 	spriteRender.setScale(scale);
 	spriteRender.setPosition(sf::Vector2f(PosIn.x, PosIn.y));
 
-
+	Flops = ObjectsWorld;
 
 	//Box2D
 	b2d_bodyDef.type = b2_dynamicBody; //Adding the body
@@ -96,6 +96,17 @@ void DynamicObject::setBody(b2Body* boxBody)
 b2Body* DynamicObject::getBody()
 {
 	return b2d_Body;
+}
+
+void DynamicObject::setPos(b2Vec2 pos)
+{
+	b2d_bodyDef.position  = pos;
+}
+
+b2Vec2 DynamicObject::getPos() 
+{
+	return b2d_bodyDef.position;
+
 }
 
 

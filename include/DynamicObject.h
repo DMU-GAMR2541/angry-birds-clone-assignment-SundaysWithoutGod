@@ -20,7 +20,8 @@ private:
 	b2FixtureDef b2d_fixtureDef;//Values that are attached to the object body like density
 	b2Body* b2d_Body;//The actual body object
 	b2CircleShape b2d_dynamicShape;//the shell around the image that would be the 'collider'#
-	std::shared_ptr<b2World> shared_world;
+protected:
+	b2World& Flops;
 
 	//Fixtures non-defined
 	float density;
@@ -57,14 +58,11 @@ public:
 
 	void setFixtures(float den, float fric, float rest);
 
-	/*float getFixtures() 
-	{
-
-		return density, friction, restitution;
-
-	}*/
-
 	void setBody(b2Body* boxBody);
 	b2Body* getBody();
+	void setPos(b2Vec2 pos);
+	b2Vec2 getPos();
+
+	virtual void isHit() = 0;
 };
 

@@ -10,3 +10,10 @@ int Bird::getDamage()
 {
 	return i_DamageGiven;
 }
+
+void Bird::isHit()
+{
+	//Destroy the sprite and the box2d body
+
+}
+
