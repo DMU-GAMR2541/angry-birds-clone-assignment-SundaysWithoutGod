@@ -86,7 +86,18 @@ void DynamicObject::setFixtures(float den, float fric, float rest) {
 	b2d_Body->CreateFixture(&b2d_fixtureDef);
 
 
-};
+}
+void DynamicObject::setBody(b2Body* boxBody)
+{
+
+	b2d_Body = boxBody;
+}
+
+b2Body* DynamicObject::getBody()
+{
+	return b2d_Body;
+}
+
 
 void DynamicObject::updateSprite()
 {

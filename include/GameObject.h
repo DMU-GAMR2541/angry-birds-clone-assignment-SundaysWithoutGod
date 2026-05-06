@@ -17,7 +17,7 @@ public:
 		std::cout << "Ultimate DEATH" << std::endl;
 	};
 //add a pure virtual void
-//virtual void Render() = 0;--REMEMBER TO DECLARE IN CHILDREN CLASSES 
+virtual void updateSprite() = 0;//--REMEMBER TO DECLARE IN CHILDREN CLASSES 
 
 
 

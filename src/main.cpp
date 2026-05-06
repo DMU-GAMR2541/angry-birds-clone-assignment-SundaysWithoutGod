@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Bird.h"
 #include "Pig.h"
+#include <list>
+
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -19,18 +21,27 @@ int main() {
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
     b2World world(b2_gravity);
     
-
-    Bird birdie(world, ("../assets/Ang_Birds/RedBird.png"), sf::Vector2f(100.f,100.f), sf::Vector2f(2.0f,2.0f), 40.0f, 0.5f, 0.2f);
+    // A list that just contains the type bird
+    //std::list<std::shared_ptr<Bird>>birdTypes; //Shared pointers of the type bird
+    //for (int i = 0; i < 3; i++) {
+    //
+    //birdTypes.push_back(std::make_shared<Bird>(Bird(world, ("../assets/Ang_Birds/RedBird.png"), sf::Vector2f(100.f+(i*10), 100.f), sf::Vector2f(2.0f, 2.0f), 40.0f, 0.5f, 0.2f)));
+    //
+    //
+    //}
+    
+    
+    Bird birdie(world, ("../assets/Ang_Birds/birdTest.png"), sf::Vector2f(150.f,367.f), sf::Vector2f(1.0f,1.0f), 40.0f, 0.5f, 0.2f);
     //birdie.setSprite("../assets/Ang_Birds/RedBird.png");
-    Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f), 20.0f, 0.3f, 1.0f);
-    Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
+   // Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f), 20.0f, 0.3f, 1.0f);
+  //  Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
     Pig largePig(world, "../assets/Ang_Birds/TesPig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
     largePig.setHealth(100);
     std::cout << "Before largepig fixture" << std::endl;
     //largePig.setFixtures(7.0f, 0.3f, 0.2f);
     //medPig.setFixtures(50.0f, 0.5f, 0.3f);
     std::cout << "After largepig fixture"<<std::endl;
-    { Pig Porkie; }
+   // { Pig Porkie; }
 
  
 
@@ -104,27 +115,61 @@ int main() {
     sf_ballVisual.setOrigin(15.0f, 15.0f);
     sf_ballVisual.setFillColor(sf::Color::Yellow);
 
+
+    //
+    float impuleX = 5.0;
+    float impuleY = -10.0;
+
     // --- 7. MAIN LOOP ---
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
-
+           
             // INPUT HANDLING: Press SPACE to launch
-            if (event.type == sf::Event::KeyPressed) {
+            if (event.type == sf::Event::KeyPressed){
+
+
+                if (event.key.code == sf::Keyboard::H) {
+
+                    impuleX = impuleX + 2.0;
+
+                }
+
+                if (event.key.code == sf::Keyboard::J) {
+
+                    impuleX = impuleX - 2.0;
+
+                }
+                if (event.key.code == sf::Keyboard::K) {
+
+                    impuleY = impuleY + 2.0;
+
+                }
+
+                if (event.key.code == sf::Keyboard::L) {
+
+                    impuleY = impuleY - 2.0;
+
+                }
+               
                 if (event.key.code == sf::Keyboard::Space) {
                     // Reset position of the ball so that it can be fired again from its original poisition.
-                    b2_ballBody->SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
-                    b2_ballBody->SetLinearVelocity(b2Vec2(0, 0));
-                    b2_ballBody->SetAngularVelocity(0);
+                    birdie.getBody()->SetTransform(b2Vec2 (150.f/SCALE,367.f/SCALE), 0);
+                    birdie.getBody()->SetLinearVelocity(b2Vec2(impuleX, impuleY));//--change these values iwth key press
+                    birdie.getBody()->SetAngularVelocity(0);
 
                     // Apply impulse (X-axis, Y-axis) Negative Y is UP in Box2D because gravity is positive.
-                    b2_ballBody->ApplyLinearImpulse(b2Vec2(10.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
+                    birdie.getBody()->ApplyLinearImpulse(b2Vec2(80.0f, -20.0f), birdie.getBody()->GetWorldCenter(), true);
 
                     std::cout << "Firing!!!!" << std::endl;
                 }
+
+               
+
             }
+
         }
 
         // Update Physics
@@ -149,15 +194,24 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-        window.draw(sf_ballVisual);
+      //  window.draw(sf_ballVisual);
+        //auto it = birdTypes.begin();
+        //dereferencing it/the iterator/pointer/ so we go to the object not the memeory
+     /*   (*it).updateSprite();
+        window.draw((*it).getSprite());*/
+       /* for (std::shared_ptr<Bird> b : birdTypes) {
+            b->updateSprite();
+            window.draw(b->getSprite());
+        
+        }*/
         birdie.updateSprite();
         window.draw(birdie.getSprite());
-        smallPig.updateSprite();
-        window.draw(smallPig.getSprite());
-        medPig.updateSprite();
-        window.draw(medPig.getSprite());
-        largePig.updateSprite();
-        window.draw(largePig.getSprite());
+      //  smallPig.updateSprite();
+       // window.draw(smallPig.getSprite());
+       // medPig.updateSprite();
+       // window.draw(medPig.getSprite());
+       largePig.updateSprite();
+       window.draw(largePig.getSprite());
         window.display();
     }
 

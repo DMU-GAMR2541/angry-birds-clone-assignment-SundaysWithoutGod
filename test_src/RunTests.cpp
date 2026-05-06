@@ -154,6 +154,16 @@ TEST(DeathTest, SecondTest) {
 
 }
 
+//Testing to see if the pig will take damage to the health
+TEST(Pig, Damage) {
+
+    Pig smallPig;
+    smallPig.setHealth(70);
+    smallPig.isHit(80);
+    EXPECT_LE(smallPig.getHealth(), 0);
+
+}
+
 TEST(Slighshot, TentionTest) {
 
     //Test to see if the set tention is >40

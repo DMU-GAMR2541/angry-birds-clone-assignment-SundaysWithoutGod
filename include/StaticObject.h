@@ -9,6 +9,8 @@ public:
 	StaticObject() = default;
 	~StaticObject() = default;
 
+	void updateSprite() override;
+
 
 
 

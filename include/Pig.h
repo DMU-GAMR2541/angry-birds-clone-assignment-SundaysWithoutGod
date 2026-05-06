@@ -22,8 +22,11 @@ public:
 	~Pig() {
 		std::cout << "Pig DEATH" << std::endl;
 	};
+
 	void setHealth(int pigHealth);
 	int getHealth();
+	void isHit(int damage);
+	bool isDestroyed();
 	
 };
 

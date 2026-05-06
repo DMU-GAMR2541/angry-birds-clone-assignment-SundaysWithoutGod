@@ -13,11 +13,16 @@ public:
 	Bird() = default;
 	//~Bird() = default;
 
+	//Constructor
 	Bird(b2World& world, std::string birdLocation, sf::Vector2f birdPos, sf::Vector2f birdScale, float birdDen, float birdFric, float birdRest) : DynamicObject(world, birdLocation, birdPos, birdScale, birdDen, birdFric, birdRest) {};
 
+	//Deconstructor
 	~Bird() {
 
 		std::cout << "The bird has flown the coop" << std::endl;
 	};
+
+	void setDamage(int birdDamage);
+	int getDamage();
 };
 

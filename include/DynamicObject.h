@@ -53,7 +53,7 @@ public:
 
 	}
 
-	void updateSprite();
+	void updateSprite() override;
 
 	void setFixtures(float den, float fric, float rest);
 
@@ -64,6 +64,7 @@ public:
 
 	}*/
 
-
+	void setBody(b2Body* boxBody);
+	b2Body* getBody();
 };
 
