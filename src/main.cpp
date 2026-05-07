@@ -28,22 +28,25 @@ int main() {
     // Register it with the world
     world.SetContactListener(&hit);
     
-     //A list that just contains the Pig types 
-    std::list<std::shared_ptr<Pig>>piggieTypes; //Shared pointers of the type bird
-    for (int i = 0; i < 3; i++) {
-    
-    piggieTypes.push_back(std::make_shared<Pig>(Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f)));
-    
-    
+     
+    std::list<std::unique_ptr<Pig>>piggieTypes; //Shared pointers of the type bird
+    for (int i = 2; i < 5; i++) {
+
+        piggieTypes.push_back(std::make_unique<Pig>(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f));
+        piggieTypes.front()->getBody()->GetUserData().pointer = i;
+
     }
-    
+
     
     Bird birdie(world, ("../assets/Ang_Birds/birdTest.png"), sf::Vector2f(150.f,367.f), sf::Vector2f(1.0f,1.0f), 40.0f, 0.5f, 0.2f);
     //birdie.setSprite("../assets/Ang_Birds/RedBird.png");
    // Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f), 20.0f, 0.3f, 1.0f);
-  //  Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
-    Pig largePig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
-    largePig.setHealth(100);
+   
+    //  Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
+    /*Pig largePig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
+    largePig.setHealth(100);*/
+    //A list that just contains the Pig types 
+    
     std::cout << "Before largepig fixture" << std::endl;
     //largePig.setFixtures(7.0f, 0.3f, 0.2f);
     //medPig.setFixtures(50.0f, 0.5f, 0.3f);
@@ -202,12 +205,13 @@ int main() {
                 
                 //
                 (*pigIt)->isHit();
+                (*pigIt)->isDestroyed(std::make_shared<b2World>(world));
 
                 
 
                 // Update the iterator by catching the return value of erase()
                 pigIt = piggieTypes.erase(pigIt); //Erase the pig from the set.
-
+                
 
             }
             else {
@@ -253,14 +257,20 @@ int main() {
             window.draw(b->getSprite());
         
         }*/
+        for (std::unique_ptr<Pig> &p : piggieTypes) {
+            p->updateSprite();
+            window.draw(p->getSprite());
+
+
+        }
         birdie.updateSprite();
         window.draw(birdie.getSprite());
       //  smallPig.updateSprite();
        // window.draw(smallPig.getSprite());
        // medPig.updateSprite();
        // window.draw(medPig.getSprite());
-       largePig.updateSprite();
-       window.draw(largePig.getSprite());
+       //largePig.updateSprite();
+      // window.draw(largePig.getSprite());
         window.display();
     }
 

@@ -10,6 +10,7 @@ private:
 	sf::Texture spriteTexture;
 	sf::Vector2f spriteScale;
 	const float SCALE = 30.0f;
+	bool b_isDestroyed = 0;
 	//Create sprite
 	//Load texture
 	//Load File--use if/else for checking
@@ -19,9 +20,8 @@ private:
 	b2BodyDef b2d_bodyDef;//Have a object body find out what's its doing or define what it is
 	b2FixtureDef b2d_fixtureDef;//Values that are attached to the object body like density
 	b2Body* b2d_Body;//The actual body object
-	b2CircleShape b2d_dynamicShape;//the shell around the image that would be the 'collider'#
+	b2CircleShape b2d_dynamicShape;//the shell around the image that would be the 'collider'
 protected:
-	b2World& Flops;
 
 	//Fixtures non-defined
 	float density;
@@ -55,6 +55,8 @@ public:
 	}
 
 	void updateSprite() override;
+
+	void isDestroyed(std::shared_ptr<b2World> world);
 
 	void setFixtures(float den, float fric, float rest);
 

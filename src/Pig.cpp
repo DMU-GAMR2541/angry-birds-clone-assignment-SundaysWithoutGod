@@ -24,10 +24,4 @@ void Pig::isHit()
 	}
 }
 
-//Getter for destroyed bool
-bool Pig::isDestroyed()
-{
-	// Remove from Box2D world first
-	DynamicObject::Flops.DestroyBody(DynamicObject::getBody()); //Remove the pig body from the world.
-	return b_Destroyed;
-}
+

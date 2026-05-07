@@ -28,7 +28,7 @@ public:
 	void setHealth(int pigHealth);
 	int getHealth();
 	void isHit () override;
-	bool isDestroyed();
+	
 	
 };
 

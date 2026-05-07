@@ -36,8 +36,6 @@ DynamicObject::DynamicObject(b2World& ObjectsWorld, std::string location, sf::Ve
 	spriteRender.setScale(scale);
 	spriteRender.setPosition(sf::Vector2f(PosIn.x, PosIn.y));
 
-	Flops = ObjectsWorld;
-
 	//Box2D
 	b2d_bodyDef.type = b2_dynamicBody; //Adding the body
 	b2d_bodyDef.position = b2Vec2(PosIn.x/SCALE, PosIn.y/SCALE);//Adding position
@@ -109,11 +107,19 @@ b2Vec2 DynamicObject::getPos()
 
 }
 
-
 void DynamicObject::updateSprite()
 {
 	//Setting the position from SFML to box2D
 	spriteRender.setPosition(sf::Vector2(b2d_Body->GetPosition().x * SCALE, b2d_Body->GetPosition().y * SCALE));
 	
 
+}
+
+//Getter for destroye
+void DynamicObject::isDestroyed(std::shared_ptr<b2World> world)
+{
+	// Remove from Box2D world first
+	 //Remove the object body from the world.
+	b2Body* b2 = b2d_Body;
+	world->DestroyBody(b2);
 }
