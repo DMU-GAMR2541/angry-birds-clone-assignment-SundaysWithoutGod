@@ -4,6 +4,7 @@
 #include"ContactListener.h"
 #include "Bird.h"
 #include "Pig.h"
+#include"StaticObject.h"
 #include <list>
 
 
@@ -52,6 +53,7 @@ int main() {
     //medPig.setFixtures(50.0f, 0.5f, 0.3f);
     std::cout << "After largepig fixture"<<std::endl;
    // { Pig Porkie; }
+    //StaticObject plank((120.0f, 50.f));
 
  
 
@@ -82,8 +84,8 @@ int main() {
     b2_wallBox.SetAsBox(10.0f / SCALE, 80.0f / SCALE);
     b2_wallBody->CreateFixture(&b2_wallBox, 0.0f);
 
-    sf::RectangleShape sf_wallVisual(sf::Vector2f(20.0f, 160.0f));
-    sf_wallVisual.setOrigin(10.0f, 80.0f);
+    sf::RectangleShape sf_wallVisual(sf::Vector2f(20.0f, 260.0f));//width and height
+    sf_wallVisual.setOrigin(10.0f, 80.0f);//sets the position
     sf_wallVisual.setFillColor(sf::Color::Red);
 
     //Rather than having an immovable wall, we can use the dynamic body type to create one that can have velocity etc.
@@ -205,12 +207,12 @@ int main() {
                 
                 //
                 (*pigIt)->isHit();
-                (*pigIt)->isDestroyed(std::make_shared<b2World>(world));
+               // (*pigIt)->isDestroyed(std::make_shared<b2World>(world));
 
                 
 
                 // Update the iterator by catching the return value of erase()
-                pigIt = piggieTypes.erase(pigIt); //Erase the pig from the set.
+                //pigIt = piggieTypes.erase(pigIt); //Erase the pig from the set.
                 
 
             }
