@@ -27,8 +27,8 @@ public:
 	
 	void setHealth(int pigHealth);
 	int getHealth();
-	void isHit () override;
-	
+	void isHit();
+	void isDestroyed(std::shared_ptr<b2World> world) override;
 	
 };
 

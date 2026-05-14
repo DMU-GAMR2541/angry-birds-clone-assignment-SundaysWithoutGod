@@ -4,6 +4,7 @@
 #include"ContactListener.h"
 #include "Bird.h"
 #include "Pig.h"
+#include"UI.h"
 #include"StaticObject.h"
 #include <list>
 
@@ -18,59 +19,86 @@ int main() {
 
     //Can set a definition for PI.
     const float PI = 3.1415927;
-    
+
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
     b2World world(b2_gravity);
 
+    bool deleteCurrentBird = false;
+    float birdLaunchTimer = 0.0f;
+    
     // Create the listener instance.
     ContactListener hit;
 
     // Register it with the world
     world.SetContactListener(&hit);
-    
-     
+    // Create a graphical text to display
+
+    //Text
+    UI T(30, "Press space to fire!!", sf::Vector2f(50.0f, 70.0f));
+    std::unique_ptr<UI> ui = std::make_unique<UI>(T);
+
     std::list<std::unique_ptr<Pig>>piggieTypes; //Shared pointers of the type bird
-    for (int i = 2; i < 5; i++) {
+    for (int i = 1; i < 4; i++) {
 
         piggieTypes.push_back(std::make_unique<Pig>(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f));
         piggieTypes.front()->getBody()->GetUserData().pointer = i;
 
     }
 
-    
-    Bird birdie(world, ("../assets/Ang_Birds/birdTest.png"), sf::Vector2f(150.f,367.f), sf::Vector2f(1.0f,1.0f), 40.0f, 0.5f, 0.2f);
-    //birdie.setSprite("../assets/Ang_Birds/RedBird.png");
-   // Pig smallPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(300.0f, 250.0f), sf::Vector2f(0.7f, 0.7f), 20.0f, 0.3f, 1.0f);
-   
-    //  Pig medPig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f), 30.0f, 0.5f, 0.3f);
-    /*Pig largePig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f, 0.0f);
-    largePig.setHealth(100);*/
-    //A list that just contains the Pig types 
-    
-    std::cout << "Before largepig fixture" << std::endl;
-    //largePig.setFixtures(7.0f, 0.3f, 0.2f);
-    //medPig.setFixtures(50.0f, 0.5f, 0.3f);
-    std::cout << "After largepig fixture"<<std::endl;
-   // { Pig Porkie; }
-    //StaticObject plank((120.0f, 50.f));
+    //UI text("The text is working", "../assests/fonts/angry-birds-1.ttf", 10, sf::Vector2f(10.0,10.0), &window);
+     //UI text2("../assests/fonts/angry-birds.ttf", " Text is working ", 50, sf::Vector2f(100.0f, 100.0f));
 
- 
+    // UI basic(&window);
+    // UI test;
+    // test.gettxt_Text();
 
-    //Setup ground for the circle to move / bounce on.
-    //Needs to have a body definition and a body. We use a raw pointer for the b2Body as Box2d does the management itself.
-    //A body can be defined as having a position, velocity, and mass. 
+    //Bird birdie(world, ("../assets/Ang_Birds/birdTest.png"), sf::Vector2f(150.f, 367.f), sf::Vector2f(1.0f, 1.0f), 40.0f, 0.5f, 0.3f);
+    /* Bird bigBird(world, ("../assets/Ang_Birds/BigBird.png"), sf::Vector2f(130.f, 367.f), sf::Vector2f(1.5f, 1.5f), 70.0f, 0.2f, 0.2f);
+     Bird fastBird(world, ("../assets/Ang_Birds/YellowBird.png"), sf::Vector2f(120.f, 367.f), sf::Vector2f(1.0f, 1.0f), 20.0f, 0.7f, 0.5f);*/
+     //Bird containers 
+    bool birdLaunched = false; //bird is waiting to be fired
+
+    //Container to store the needed bird information
+    struct BirdData {
+        std::string location;
+        float den;
+        float fric;
+        float rest;
+    };
+
+    std::vector<BirdData> birdData;//Putting the bords into a vector
+    std::vector<std::unique_ptr<Bird>> flock;//creating a pointer to the bird data
+    //creating the different bird types
+    birdData.push_back({ "../assets/Ang_Birds/YellowBird.png", 0.5f, 0.6f, 0.3f });
+    birdData.push_back({ "../assets/Ang_Birds/BigBird.png",    2.0f, 0.8f, 0.1f });
+    birdData.push_back({ "../assets/Ang_Birds/birdTest.png",   1.0f, 0.3f, 0.6f });
+    
+    for (const auto& birds : birdData) {
+        flock.push_back(std::make_unique<Bird>(world, birds.location, sf::Vector2f(150.0f, 450.0f), sf::Vector2f(1.0f, 1.0f), birds.den, birds.fric, birds.rest));
+    }
+    /*for (std::string s : location) {
+
+        flock.push_back(std::make_unique<Bird>(world, s, sf::Vector2f(150.0f, 450.0f), sf::Vector2f(1.0f, 1.0f), 1.0f, 0.8f, 0.3f));
+
+    }*/
+
+
+
+     //Setup ground for the circle to move / bounce on.
+     //Needs to have a body definition and a body. We use a raw pointer for the b2Body as Box2d does the management itself.
+     //A body can be defined as having a position, velocity, and mass. 
     b2BodyDef b2_groundBodyDef;
     b2_groundBodyDef.position.Set(400.0f / SCALE, 590.0f / SCALE);
     b2Body* b2_groundBody = world.CreateBody(&b2_groundBodyDef);
 
     //Define a fixture shape that relates to the collision for the ground.
     b2PolygonShape b2_groundBox;
-    b2_groundBox.SetAsBox(400.0f / SCALE, 10.0f / SCALE);
+    b2_groundBox.SetAsBox(1000.0f / SCALE, 10.0f / SCALE);
     b2_groundBody->CreateFixture(&b2_groundBox, 0.0f);
 
     //Set up the ground visualisation.
-    sf::RectangleShape sf_groundVisual(sf::Vector2f(800.0f, 20.0f));
+    sf::RectangleShape sf_groundVisual(sf::Vector2f(1200.0f, 20.0f));
     sf_groundVisual.setOrigin(400.0f, 10.0f);
     sf_groundVisual.setFillColor(sf::Color(34, 139, 34)); // Forest Green
 
@@ -81,11 +109,11 @@ int main() {
 
 
     b2PolygonShape b2_wallBox;
-    b2_wallBox.SetAsBox(10.0f / SCALE, 80.0f / SCALE);
+    b2_wallBox.SetAsBox(-40.0f / SCALE, 1000.0f / SCALE);
     b2_wallBody->CreateFixture(&b2_wallBox, 0.0f);
 
-    sf::RectangleShape sf_wallVisual(sf::Vector2f(20.0f, 260.0f));//width and height
-    sf_wallVisual.setOrigin(10.0f, 80.0f);//sets the position
+    sf::RectangleShape sf_wallVisual(sf::Vector2f(30.0f, 560.0f));//width and height
+    sf_wallVisual.setOrigin(-350.0f, 480.0f);//sets the position
     sf_wallVisual.setFillColor(sf::Color::Red);
 
     //Rather than having an immovable wall, we can use the dynamic body type to create one that can have velocity etc.
@@ -129,21 +157,18 @@ int main() {
 
 
     //Created floates with default values that can change the trajectory of the bird being launched 
-    float impuleX = 5.0;
-    float impuleY = -10.0;
+    float impuleX = 100.0f;
+    float impuleY = -70.0f;
 
-    //Creating an original position variable that can hold any of the birds original position.
-    b2Vec2 orginalPos = birdie.getPos();
-    
     // --- 7. MAIN LOOP ---
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
-           
+
             // INPUT HANDLING: Press SPACE to launch
-            if (event.type == sf::Event::KeyPressed){
+            if (event.type == sf::Event::KeyPressed) {
 
                 //Inputs to change the tragectory of the bird
                 if (event.key.code == sf::Keyboard::H) {
@@ -172,21 +197,29 @@ int main() {
                     std::cout << "Y Value: " << impuleY << std::endl;
 
                 }
-               
-                if (event.key.code == sf::Keyboard::Space) {
-                    // Reset position of the ball so that it can be fired again from its original poisition.
-                    birdie.getBody()->SetTransform(orginalPos, 0);
-                    birdie.getBody()->SetLinearVelocity(b2Vec2(impuleX, impuleY));//--change these values iwth key press
-                    birdie.getBody()->SetAngularVelocity(0);
 
-                    // Apply impulse (X-axis, Y-axis) Negative Y is UP in Box2D because gravity is positive.
-                    birdie.getBody()->ApplyLinearImpulse(b2Vec2(80.0f, -20.0f), birdie.getBody()->GetWorldCenter(), true);
+                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
 
-                    std::cout << "Firing!!!!" << std::endl;
+                    //if there are birds and they aren't flying
+                    if (!flock.empty() && !birdLaunched) {
+                        Bird* currentBird = flock.front().get();
+
+                        currentBird->getBody()->SetAwake(true);
+                        currentBird->getBody()->SetLinearVelocity(b2Vec2_zero);
+                   
+                        currentBird->getBody()->ApplyLinearImpulseToCenter(b2Vec2(impuleX, impuleY), true);
+                       
+
+                        birdLaunched = true;
+                        birdLaunchTimer = 0.0f;
+                        std::cout
+                            << "MASS" << currentBird->getBody()->GetMass()
+                            << std::endl;
+
+                    }
+
+                    //after bird is fires erase from the list, fires next in list but check if there is bird is in list
                 }
-
-               
-
             }
 
         }
@@ -194,26 +227,78 @@ int main() {
         // Update Physics
         world.Step(1.0f / 60.0f, 8, 3);
 
-        //
+        if (birdLaunched) {
+            birdLaunchTimer += 1.0f / 60.0f;
+        }
+       
+        //If the flock is not empty update the sprites and make sure it lines up with the physics
+        if (!flock.empty()) {
+            for (auto& bird : flock)
+                bird->updateSprite();
+
+            
+        }
+
+        //If the birds are still there get the first bird
+        if (!flock.empty()) {
+
+            Bird* currentBird = flock.front().get();
+           
+            if (currentBird && currentBird->getBody()) {
+
+                b2Vec2 vel = currentBird->getBody()->GetLinearVelocity();
+              
+                if (birdLaunched && birdLaunchTimer> 1.0f && vel.Length() < 0.8f) {
+                
+                deleteCurrentBird = true;
+               
+                std::cout << "DELETING BIRD: " << std::endl;
+                }
+
+             }
+
+        }
+            
+
+        if (deleteCurrentBird && !flock.empty())
+        {
+            world.DestroyBody(flock.front()->getBody());//remove the physics
+            flock.erase(flock.begin());//remove the first bird in the vector so the second one is now first
+
+            
+            birdLaunched = false;
+            deleteCurrentBird = false;
+            birdLaunchTimer = 0.0f;
+
+            if (!flock.empty())
+            {
+                flock.front()->getBody()->SetAwake(true);
+                flock.front()->getBody()->SetLinearVelocity(b2Vec2_zero);
+                flock.front()->getBody()->SetAngularVelocity(0);
+            }
+       
+        }
+
+
+
         std::set<uintptr_t> s_p = hit.getPointer(); //Set of pointers to the pig ID's
         for (auto pigIt = piggieTypes.begin(); pigIt != piggieTypes.end(); ) {
 
-            uintptr_t currentPigID = (*pigIt)->getBody()->GetUserData().pointer;
+            uintptr_t currentPigID = (*pigIt)->getBody()->GetUserData().pointer; //Getting the current ID
 
             // Check if this pig's ID exists in the hit list
             if (s_p.find(currentPigID) != s_p.end()) { //Check through all of the container for specific Id's
 
                 std::cout << currentPigID << " Destroyed" << std::endl;
-                
-                //
-                (*pigIt)->isHit();
-               // (*pigIt)->isDestroyed(std::make_shared<b2World>(world));
 
-                
+                //Created a pointer to the pigIt body so I can go in there to destroy it.
+                b2Body* bodyIdeal = (*pigIt)->getBody();
+                world.DestroyBody(bodyIdeal);
+
 
                 // Update the iterator by catching the return value of erase()
-                //pigIt = piggieTypes.erase(pigIt); //Erase the pig from the set.
-                
+                pigIt = piggieTypes.erase(pigIt); //Erase the pig sprite from the set.
+
 
             }
             else {
@@ -238,9 +323,9 @@ int main() {
         sf_plankVisual.setPosition(b2_plankBody->GetPosition().x * SCALE, b2_plankBody->GetPosition().y * SCALE);
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
-        
-        
-        
+
+
+
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
 
@@ -249,30 +334,23 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-      //  window.draw(sf_ballVisual);
-        //auto it = birdTypes.begin();
-        //dereferencing it/the iterator/pointer/ so we go to the object not the memeory
-     /*   (*it).updateSprite();
-        window.draw((*it).getSprite());*/
-       /* for (std::shared_ptr<Bird> b : birdTypes) {
-            b->updateSprite();
-            window.draw(b->getSprite());
-        
-        }*/
-        for (std::unique_ptr<Pig> &p : piggieTypes) {
+     
+        for (std::unique_ptr<Pig>& p : piggieTypes) {
             p->updateSprite();
             window.draw(p->getSprite());
 
 
         }
-        birdie.updateSprite();
-        window.draw(birdie.getSprite());
-      //  smallPig.updateSprite();
-       // window.draw(smallPig.getSprite());
-       // medPig.updateSprite();
-       // window.draw(medPig.getSprite());
-       //largePig.updateSprite();
-      // window.draw(largePig.getSprite());
+
+        //draw all the birds in flock on the screen
+        for (auto& bird : flock)
+        {
+            window.draw(bird->getSprite());
+        }
+    
+        window.draw(ui->getText());
+
+     
         window.display();
     }
 

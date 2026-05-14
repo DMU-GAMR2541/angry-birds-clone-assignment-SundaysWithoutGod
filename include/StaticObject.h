@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-class StaticObject : public GameObject
+class StaticObject : virtual public GameObject
 {
 private:
 	float sizeX;

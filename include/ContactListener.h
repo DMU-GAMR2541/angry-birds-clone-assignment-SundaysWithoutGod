@@ -19,9 +19,10 @@ class ContactListener : public b2ContactListener {
         b2Fixture* fixtureB = contact->GetFixtureB();
 
         
-        if (fixtureA->GetBody()->GetUserData().pointer <= 2 && fixtureB->GetBody()->GetUserData().pointer == 1) {
+        if (fixtureA->GetBody()->GetUserData().pointer == 2 && fixtureB->GetBody()->GetUserData().pointer == 1) {
             s_ptr.insert(fixtureA->GetBody()->GetUserData().pointer);
             std::cout << fixtureA->GetBody()->GetUserData().pointer << " and " << fixtureB->GetBody()->GetUserData().pointer << " hit " << std::endl;
+
         }
 
         

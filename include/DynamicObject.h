@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-class DynamicObject : public GameObject
+class DynamicObject : virtual public  GameObject
 {
 private:
 	
@@ -56,7 +56,7 @@ public:
 
 	void updateSprite() override;
 
-	void isDestroyed(std::shared_ptr<b2World> world);
+	virtual void isDestroyed(std::shared_ptr<b2World> world) = 0;
 
 	void setFixtures(float den, float fric, float rest);
 
@@ -65,6 +65,6 @@ public:
 	void setPos(b2Vec2 pos);
 	b2Vec2 getPos();
 
-	virtual void isHit() = 0;
+	 void isHit();
 };
 

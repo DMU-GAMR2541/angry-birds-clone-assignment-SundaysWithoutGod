@@ -13,7 +13,15 @@ int Bird::getDamage()
 
 void Bird::isHit()
 {
-	//Destroy the sprite and the box2d body
+	//return what is hit
 
 }
+
+void Bird::isDestroyed(std::shared_ptr<b2World> world)
+{
+
+
+}
+
+
 

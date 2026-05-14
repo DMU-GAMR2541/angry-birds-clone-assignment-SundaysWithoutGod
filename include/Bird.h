@@ -26,6 +26,7 @@ public:
 	
 	void setDamage(int birdDamage);
 	int getDamage();
-	virtual void isHit() override;
+	void isHit();
+	void isDestroyed(std::shared_ptr<b2World> world) override;
 };
 
