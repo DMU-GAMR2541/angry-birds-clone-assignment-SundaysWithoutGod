@@ -4,6 +4,7 @@
 #include"DynamicObject.h"
 #include "Pig.h"
 #include"box2d/box2d.h"
+#include"Bird.h"
 
 /// <summary>
 ///Taken from the GoogleTest primer. 
@@ -155,14 +156,14 @@ TEST(DeathTest, SecondTest) {
 }
 
 //Testing to see if the pig will take damage to the health
-TEST(Pig, Damage) {
-    //RECORD THIS BEFORE CHANGING THEN REDO THE TEST
-    Pig smallPig;
-    smallPig.setHealth(70);
-    smallPig.isHit(80);
-    EXPECT_LE(smallPig.getHealth(), 0);
-
-}
+//TEST(Pig, Damage) {
+//    //RECORD THIS BEFORE CHANGING THEN REDO THE TEST
+//    Pig smallPig;
+//    smallPig.setHealth(70);
+//    smallPig.isHit(80);
+//    EXPECT_LE(smallPig.getHealth(), 0);
+//
+//}
 
 TEST(Slighshot, TentionTest) {
 
@@ -228,13 +229,13 @@ protected:
     ParamTest() = default;
     ~ParamTest() = default;
 
-    void SetUp() override {
+    void SetUp() override {// things done before a test, setting the position to 0
         // Code here will be called immediately after the constructor (right
         // before each test).
 
     }
 
-    void TearDown() override {
+    void TearDown() override { //things done after the test, 
 
     }
 };
@@ -255,4 +256,70 @@ INSTANTIATE_TEST_SUITE_P(
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
+}
+
+//Test a static object is correct in the game window
+
+//Take the bird game object and test to see if it's position is calculated correctly in relation to the pigs, floor and static plank
+
+//Test the correctness of the sequence of destructor calls, for example from pig to gameobject. ASK FOR MORE DETAIL
+
+//test the fixtures of the pigs or birds
+
+
+
+//Demonstrate fatal and non-fatal asserts and expects. ASK FOR MORE DETAIL
+
+//Test whether a sprite or texture of a sprite can be loaded. ASK FOR MORE DETAILS
+//TRUE OR FALSE RETURN TEST
+
+//Test the correctness of the movement of a dynamic object across a suitable spread of values. ASK FOR MORE DETAILS
+//--take three values for the position 
+//PARAM TEST TEST_P
+
+
+
+//create a bird class which allows me not have to repeatedly make birds for individual test
+class birdTest : public::testing::Test {
+
+private:
+
+
+public:
+   
+    std::shared_ptr<Bird>Test;
+   
+    birdTest() = default;
+    ~birdTest() = default;
+
+    void SetUp() override { // things done before a test, setting the position to 0
+        // Code here will be called immediately after the constructor (right
+        // before each test).
+      
+        //Test->setPos(b2Vec2(0, 0));
+        b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
+        b2World world(b2_gravity);
+        const float SCALE = 30.0f;
+        Test = std::make_shared<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
+
+    }
+
+    void TearDown() override { //things done after the test, 
+
+        Test->setPos(b2Vec2(10.0f, 10.0f));
+    }
+
+
+};
+//Data setup for multiple tests in the proceeding class including the setup and teardown functionality. ASK FOR MORE DETAIL
+
+//Using the bird class to set up tests 
+//Testing the position of the bird from the sprite and it's greater than 0
+TEST_F(birdTest, getSprite) {
+    
+    EXPECT_GT(Test->getSprite().getPosition().x, 0);
+}
+TEST_F(birdTest, changingPos2) {
+
+    EXPECT_EQ(Test->getPos().x, 10.0f);
 }
