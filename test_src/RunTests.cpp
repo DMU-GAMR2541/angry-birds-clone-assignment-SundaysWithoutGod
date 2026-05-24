@@ -217,7 +217,6 @@ TEST(BirdType, BlackBird) {
     Black.setBirdType("Black");
     std::string typeB = Black.getBirdType();
     const char* birdChar = typeB.c_str();
-
     EXPECT_STREQ(birdChar, "Yellow");
     
 
@@ -261,6 +260,8 @@ int main(int argc, char** argv) {
 //Test a static object is correct in the game window
 
 //Take the bird game object and test to see if it's position is calculated correctly in relation to the pigs, floor and static plank
+//Creatinf a bird and making it's position equal to the ither 3 objects and seeing if that works
+//Or if they are 10 pixels away
 
 //Test the correctness of the sequence of destructor calls, for example from pig to gameobject. ASK FOR MORE DETAIL
 
@@ -270,8 +271,7 @@ int main(int argc, char** argv) {
 
 //Demonstrate fatal and non-fatal asserts and expects. ASK FOR MORE DETAIL
 
-//Test whether a sprite or texture of a sprite can be loaded. ASK FOR MORE DETAILS
-//TRUE OR FALSE RETURN TEST
+
 
 //Test the correctness of the movement of a dynamic object across a suitable spread of values. ASK FOR MORE DETAILS
 //--take three values for the position 
@@ -288,7 +288,7 @@ private:
 public:
    
     std::shared_ptr<Bird>Test;
-   
+    const float SCALE = 30.0f;
     birdTest() = default;
     ~birdTest() = default;
 
@@ -299,13 +299,14 @@ public:
         //Test->setPos(b2Vec2(0, 0));
         b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
         b2World world(b2_gravity);
-        const float SCALE = 30.0f;
+       
         Test = std::make_shared<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
-
+        std::cout << "SetUp" << std::endl;
     }
 
     void TearDown() override { //things done after the test, 
 
+        std::cout << "TearDown" << std::endl;
         Test->setPos(b2Vec2(10.0f, 10.0f));
     }
 
@@ -320,6 +321,17 @@ TEST_F(birdTest, getSprite) {
     EXPECT_GT(Test->getSprite().getPosition().x, 0);
 }
 TEST_F(birdTest, changingPos2) {
+    std::cout << Test->getPos().x << std::endl;
+    EXPECT_EQ(Test->getPos().x, (700.0f / SCALE));
+    //THE position is failing for the box2D
+    //I'm checking the bo2D position against the set position of the sprite since they should overlap
+}
 
-    EXPECT_EQ(Test->getPos().x, 10.0f);
+//Test whether a sprite or texture of a sprite can be loaded. ASK FOR MORE DETAILS
+//TRUE OR FALSE RETURN TEST
+//Test not working weather I use true or false the test still passes
+TEST_F(birdTest, loadSprite) {
+    
+    EXPECT_FALSE(false, Test->setSprite("../assets/Ang_Birds/YellowBird.png"), false);
+
 }
