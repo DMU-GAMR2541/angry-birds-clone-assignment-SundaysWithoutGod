@@ -22,7 +22,7 @@ private:
 	b2Body* b2d_Body;//The actual body object
 	b2CircleShape b2d_dynamicShape;//the shell around the image that would be the 'collider'
 protected:
-
+	bool b_loadSprite = true;
 	//Fixtures non-defined
 	float density;
 	float friction;
@@ -49,12 +49,13 @@ public:
 
 
 	sf::Sprite getSprite() {
-
 		return spriteRender;
 
 	}
 
 	void updateSprite() override;
+
+	void updateSprite(b2Vec2 spritePos);
 
 	virtual void isDestroyed(std::shared_ptr<b2World> world) = 0;
 
@@ -64,7 +65,8 @@ public:
 	b2Body* getBody();
 	void setPos(b2Vec2 pos);
 	b2Vec2 getPos();
-
-	 void isHit();
+	//Creating a return function for the bool that says if the sprite is loaded so I can get it
+	bool getLoadSprite();
+	void isHit();
 };
 

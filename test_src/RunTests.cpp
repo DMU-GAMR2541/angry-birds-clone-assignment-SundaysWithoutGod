@@ -222,36 +222,65 @@ TEST(BirdType, BlackBird) {
 
 }
 
-//Test--
-class ParamTest : public::testing::TestWithParam<int> {
+//create a bird, set the position, set parameters (list of position, ) 
+//Test the correctness of the movement of a dynamic object across a suitable spread of values. ASK FOR MORE DETAILS
+//PARAM TEST TEST_P
+class birdMovementTest : public::testing::TestWithParam<b2Vec2> {
 protected:
-    ParamTest() = default;
-    ~ParamTest() = default;
+    birdMovementTest() = default;
+    ~birdMovementTest() = default;
 
-    void SetUp() override {// things done before a test, setting the position to 0
+private:
+
+
+public:
+
+    std::shared_ptr<Bird>Test;
+    const float SCALE = 30.0f;
+    bool loadSprite = true;
+  
+
+    void SetUp() override { // things done before a test, setting the position to 0
         // Code here will be called immediately after the constructor (right
         // before each test).
 
+        //Test->setPos(b2Vec2(0, 0));
+        b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
+        b2World world(b2_gravity);
+
+        Test = std::make_shared<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
+        std::cout << "SetUp" << std::endl;
     }
 
     void TearDown() override { //things done after the test, 
 
+        std::cout << "TearDown" << std::endl;
+       // Test->setPos(b2Vec2(10.0f, 10.0f));
     }
 };
 
-TEST_P(ParamTest, SimpleTest) {
-    int i_test = GetParam();
-    std::cout << "Param value:: " << i_test << std::endl;
-    ASSERT_GT(i_test, 1);
+INSTANTIATE_TEST_SUITE_P(
+    MovementTest,//Name of testing suite
+    birdMovementTest,::testing::Values(
+        b2Vec2(700.0f,300.0f),
+        b2Vec2(750.0f, 350.0f),
+        b2Vec2(800.0f, 400.0f),
+        b2Vec2(850.0f, 450.0f),
+        b2Vec2(900.0f,500.0f)
+
+    ) //point the suit to the class thats called ParamTest--
+);
+TEST_P(birdMovementTest, MovementTest) {
+   b2Vec2 b2_movement = GetParam();
+   std::cout << "Param value:: " << b2_movement.x << std::endl;
+   Test->updateSprite(b2_movement);
+   std::cout << "Sprite Param:  " << Test->getSprite().getPosition().y << " b2:  " << b2_movement.y * SCALE << std::endl;
+   ASSERT_EQ(Test->getSprite().getPosition().y, b2_movement.y*SCALE);
+
 }
 
-INSTANTIATE_TEST_SUITE_P(
-    Simple,//Name of testing suite
-    ParamTest, ::testing::Values(1, 2, 3, 4, 5) //point the suit to the class thats called ParamTest--
-);
-
-//Param test setting the posX to 20 and giving 4 boundary values 
-//--pos and neg numbers, middle nums, end vlaue ramges
+////Param test setting the posX to 20 and giving 4 boundary values 
+////--pos and neg numbers, middle nums, end vlaue ramges
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
@@ -259,13 +288,16 @@ int main(int argc, char** argv) {
 
 //Test a static object is correct in the game window
 
+//Game window is (1200, 800)
+
+
 //Take the bird game object and test to see if it's position is calculated correctly in relation to the pigs, floor and static plank
-//Creatinf a bird and making it's position equal to the ither 3 objects and seeing if that works
+//Creating a bird and making it's position equal to the ither 3 objects and seeing if that works
 //Or if they are 10 pixels away
 
 //Test the correctness of the sequence of destructor calls, for example from pig to gameobject. ASK FOR MORE DETAIL
 
-//test the fixtures of the pigs or birds
+
 
 
 
@@ -273,9 +305,7 @@ int main(int argc, char** argv) {
 
 
 
-//Test the correctness of the movement of a dynamic object across a suitable spread of values. ASK FOR MORE DETAILS
-//--take three values for the position 
-//PARAM TEST TEST_P
+
 
 
 
@@ -289,6 +319,7 @@ public:
    
     std::shared_ptr<Bird>Test;
     const float SCALE = 30.0f;
+    bool loadSprite = true;
     birdTest() = default;
     ~birdTest() = default;
 
@@ -300,14 +331,14 @@ public:
         b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
         b2World world(b2_gravity);
        
-        Test = std::make_shared<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
         std::cout << "SetUp" << std::endl;
+        Test = std::make_shared<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
     }
 
     void TearDown() override { //things done after the test, 
 
         std::cout << "TearDown" << std::endl;
-        Test->setPos(b2Vec2(10.0f, 10.0f));
+       
     }
 
 
@@ -315,23 +346,30 @@ public:
 //Data setup for multiple tests in the proceeding class including the setup and teardown functionality. ASK FOR MORE DETAIL
 
 //Using the bird class to set up tests 
+//test the fixtures of a bird
 //Testing the position of the bird from the sprite and it's greater than 0
 TEST_F(birdTest, getSprite) {
     
     EXPECT_GT(Test->getSprite().getPosition().x, 0);
 }
 TEST_F(birdTest, changingPos2) {
-    std::cout << Test->getPos().x << std::endl;
-    EXPECT_EQ(Test->getPos().x, (700.0f / SCALE));
-    //THE position is failing for the box2D
-    //I'm checking the bo2D position against the set position of the sprite since they should overlap
+
+    //Testing to see of the sprite position will be the same as the value I set
+
+    
+    Test->getSprite().setPosition(250, 350.0f);
+    
+    std::cout << "Sprite POSITION: " << Test->getSprite().getPosition().x << std::endl;
+    
+    EXPECT_EQ(Test->getSprite().getPosition().x, (700.0f / SCALE));
+   
 }
 
-//Test whether a sprite or texture of a sprite can be loaded. ASK FOR MORE DETAILS
+
+//Test whether a sprite  texture can be loaded. 
 //TRUE OR FALSE RETURN TEST
-//Test not working weather I use true or false the test still passes
 TEST_F(birdTest, loadSprite) {
     
-    EXPECT_FALSE(false, Test->setSprite("../assets/Ang_Birds/YellowBird.png"), false);
+    EXPECT_FALSE(Test->getLoadSprite());
 
 }

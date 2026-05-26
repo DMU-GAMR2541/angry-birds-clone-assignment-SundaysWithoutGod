@@ -5,13 +5,14 @@ DynamicObject::DynamicObject(std::string location, sf::Vector2f PosIn, sf::Vecto
 
 	if (!spriteTexture.loadFromFile(location)) {
 		std::cout << "Texture NOT loadiing" << std::endl;
-
+		
 	}
 	else
 	{
 		spriteRender.setTexture(spriteTexture);
 		//setting the origins-taking it from the corner to the center point
 		spriteRender.setOrigin(spriteRender.getLocalBounds().getSize().x/2.0f, spriteRender.getLocalBounds().getSize().y/2.0f);
+
 	}
 	
 	spriteRender.setScale(scale);
@@ -70,11 +71,12 @@ void DynamicObject::setSprite(std::string location)
 {
 	if (!spriteTexture.loadFromFile(location)) {
 		std::cout << "Texture NOT loadiing" << std::endl;
-
+		b_loadSprite = false;
 	}
 	else
 	{
 		spriteRender.setTexture(spriteTexture);
+		b_loadSprite = true;
 	}
 
 }
@@ -110,6 +112,12 @@ b2Vec2 DynamicObject::getPos()
 
 }
 
+bool DynamicObject::getLoadSprite()
+{
+
+	return b_loadSprite;
+}
+
 void DynamicObject::updateSprite()
 {
 	//Setting the position from SFML to box2D
@@ -117,7 +125,17 @@ void DynamicObject::updateSprite()
 	b2Vec2 pos = b2d_Body->GetPosition();
 
 	spriteRender.setPosition(pos.x * SCALE, pos.y * SCALE);
-	
+
+}
+
+void DynamicObject::updateSprite(b2Vec2 spritePos)
+{
+	//Setting the position from SFML to box2D
+
+	b2Vec2 pos = b2d_Body->GetPosition();
+
+	spriteRender.setPosition(spritePos.x * SCALE, spritePos.y * SCALE);
+
 }
 
 //Getter for destroye
