@@ -323,7 +323,7 @@ public:
         window = std::make_unique<sf::RenderWindow>(sf::VideoMode(1200, 800), "Aggressive_Aviens");
         //Set up a window that I can acess
      
-        ui = std::make_unique<UI>(30, "Text being rendered to the window", sf::Vector2f(50.0f, 70.0f));
+        ui = std::make_unique<UI>(30, "Text being rendered to the window", sf::Vector2f(1300.0f, 850.0f));
        
     };
 
@@ -341,6 +341,7 @@ TEST_F(UITest, Placement) {
     EXPECT_LE(ui->getText().getPosition().x, window->getSize().x);
     EXPECT_LE(ui->getText().getPosition().y, window->getSize().y);
     
+
 //Placeing withing the window in the correct fashion
     //testing if its greater than the widest part as well
 
