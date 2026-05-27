@@ -2,9 +2,11 @@
 #include "Enemy.h"
 #include "Slingshot.h"
 #include"DynamicObject.h"
+#include"StaticObject.h"
 #include "Pig.h"
 #include"box2d/box2d.h"
 #include"Bird.h"
+#include"UI.h"
 
 /// <summary>
 ///Taken from the GoogleTest primer. 
@@ -109,8 +111,8 @@ TEST_F(EnemyTest, LethalDamagePopsPig) {
 TEST(Pig, posTest) 
 {
   //Setting up a sprite, getting the position of the sprite and setting the position then running a test to see if the position equals what I set it to.
-   Pig medPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(500.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
-   EXPECT_EQ(medPig.getSprite().getPosition().x, 500.0f);
+   Pig medPig("../assets/Ang_Birds/SinglePig.png", sf::Vector2f(550.0f, 500.0f), sf::Vector2f(1.0f, 1.0f));
+   EXPECT_EQ(medPig.getSprite().getPosition().x, 550.0f);
    
 
 }
@@ -288,7 +290,62 @@ int main(int argc, char** argv) {
 
 //Test a static object is correct in the game window
 
-//Game window is (1200, 800)
+class UITest : public::testing::Test {
+
+private:
+protected:
+    sf::Text txt_Text;//the text
+    sf::Font f_font;//the font of the text
+    std::unique_ptr<sf::RenderWindow>window; //reference to window
+    std::unique_ptr<UI> ui;
+    UITest() = default;
+    ~UITest() = default;
+public:
+    UITest(int i, std::string texT, sf::Vector2f pos) {
+
+
+       
+    };
+
+    sf::Text getText() {
+        return txt_Text;
+    }
+      UITest(std::string location, std::string text, int textSize, sf::Vector2f position);
+    //str text, str location, int textSize, vector2f position, &window
+
+    sf::Font gettxt_Text() {
+        return f_font;
+        std::cout << "Text is called debug" << std::endl;
+    }; //return the string
+  
+    void SetUp() override {
+    
+        window = std::make_unique<sf::RenderWindow>(sf::VideoMode(1200, 800), "Aggressive_Aviens");
+        //Set up a window that I can acess
+     
+        ui = std::make_unique<UI>(30, "Text being rendered to the window", sf::Vector2f(50.0f, 70.0f));
+       
+    };
+
+    void TearDown() override {};
+
+};
+
+
+
+//Get the width of window and check I the UI is correctly placed within the window same with height
+//2 expects of width and height
+TEST_F(UITest, Placement) {
+   std::cout<<"UI Pos X : "<< ui->getText().getPosition().x << std::endl;
+   std::cout<<"UI Pos Y : "<< ui->getText().getPosition().y << std::endl;
+    EXPECT_LE(ui->getText().getPosition().x, window->getSize().x);
+    EXPECT_LE(ui->getText().getPosition().y, window->getSize().y);
+    
+//Placeing withing the window in the correct fashion
+    //testing if its greater than the widest part as well
+
+}
+
 
 
 //Take the bird game object and test to see if it's position is calculated correctly in relation to the pigs, floor and static plank
@@ -317,7 +374,7 @@ private:
 
 public:
    
-    std::shared_ptr<Bird>Test;
+    std::unique_ptr<Bird>Test;
     const float SCALE = 30.0f;
     bool loadSprite = true;
     birdTest() = default;
@@ -332,7 +389,7 @@ public:
         b2World world(b2_gravity);
        
         std::cout << "SetUp" << std::endl;
-        Test = std::make_shared<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
+        Test = std::make_unique<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
     }
 
     void TearDown() override { //things done after the test, 
@@ -357,10 +414,11 @@ TEST_F(birdTest, changingPos2) {
     //Testing to see of the sprite position will be the same as the value I set
 
     
-    Test->getSprite().setPosition(250, 350.0f);
     
+    std::cout << "NEW POS: " << (550/SCALE) << std::endl;
+    
+    Test->getSprite().setPosition(550, 350.0f);
     std::cout << "Sprite POSITION: " << Test->getSprite().getPosition().x << std::endl;
-    
     EXPECT_EQ(Test->getSprite().getPosition().x, (700.0f / SCALE));
    
 }
