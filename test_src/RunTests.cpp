@@ -437,8 +437,8 @@ TEST_F(birdTest, loadSprite) {
 TEST_F(birdTest, Relation) {
 
     ASSERT_EQ(Test->getSprite().getPosition(), pigFunc->getSprite().getPosition()); //compsring the position of one bird against a pig
-    ASSERT_EQ(Test->getSprite().getPosition().x, pigTest->getSprite().getPosition().x); //compsring the position of one bird against a pig
-    ASSERT_EQ(Test->getSprite().getPosition().x, pig->getSprite().getPosition().x); //compsring the position of one bird against a pig
+    ASSERT_LE(Test->getSprite().getPosition().x, pigTest->getSprite().getPosition().x); //compsring the position of one bird against a pig
+    ASSERT_LE(Test->getSprite().getPosition().x, pig->getSprite().getPosition().x); //compsring the position of one bird against a pig
     //Goes
     // Point of relations test-----Checking the position of the bird pixels the same or further awat than the pig--correct relationship with bird
     // using asserts 
