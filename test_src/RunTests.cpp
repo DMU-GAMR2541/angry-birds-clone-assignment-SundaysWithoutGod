@@ -349,21 +349,7 @@ TEST_F(UITest, Placement) {
 
 
 
-//Take the bird game object and test to see if it's position is calculated correctly in relation to the pigs, floor and static plank
-//Creating a bird and making it's position equal to the ither 3 objects and seeing if that works
-//Or if they are 10 pixels away
-
-//Test the correctness of the sequence of destructor calls, for example from pig to gameobject. ASK FOR MORE DETAIL
-
-
-
-
-
 //Demonstrate fatal and non-fatal asserts and expects. ASK FOR MORE DETAIL
-
-
-
-
 
 
 
@@ -376,6 +362,9 @@ private:
 public:
    
     std::unique_ptr<Bird>Test;
+    std::unique_ptr<Pig>pigFunc;
+    std::unique_ptr<Pig>pigTest;
+    std::unique_ptr<Pig>pig;
     const float SCALE = 30.0f;
     bool loadSprite = true;
     birdTest() = default;
@@ -390,7 +379,12 @@ public:
         b2World world(b2_gravity);
        
         std::cout << "SetUp" << std::endl;
-        Test = std::make_unique<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f / SCALE, 300.0f / SCALE), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
+        Test = std::make_unique<Bird>(world, "../assets/Ang_Birds/YellowBird.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 0.5f, 0.6f, 0.3f);
+
+        //Adding in a pig variable for relations testing
+        pigFunc = std::make_unique<Pig>(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+        pigTest = std::make_unique<Pig>(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(720.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+        pig = std::make_unique<Pig>(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(740.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
     }
 
     void TearDown() override { //things done after the test, 
@@ -431,4 +425,23 @@ TEST_F(birdTest, loadSprite) {
     
     EXPECT_FALSE(Test->getLoadSprite());
 
+}
+
+
+//Take the bird game object and test to see if it's position is calculated correctly in relation to the pigs, floor and static plank
+//Creating a bird and making it's position equal to the other 3 objects and seeing if that works
+//Or if they are 10 pixels away
+//
+//Test the correctness of the sequence of destructor calls, for example from pig to gameobject. ASK FOR MORE DETAIL
+
+TEST_F(birdTest, Relation) {
+
+    ASSERT_EQ(Test->getSprite().getPosition(), pigFunc->getSprite().getPosition()); //compsring the position of one bird against a pig
+    ASSERT_GE(Test->getSprite().getPosition(), pigTest->getSprite().getPosition()); //compsring the position of one bird against a pig
+    ASSERT_GE(Test->getSprite().getPosition(), pig->getSprite().getPosition()); //compsring the position of one bird against a pig
+    //Goes
+    // Point of relations test-----Checking the position of the bird pixels the same or further awat than the pig--correct relationship with bird
+    // using asserts 
+   
+    //Testing the position relationship--Does it work  with multiple pigs/Does for me
 }
