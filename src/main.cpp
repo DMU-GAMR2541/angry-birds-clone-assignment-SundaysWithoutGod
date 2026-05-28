@@ -2,11 +2,15 @@
 #include <box2d/box2d.h>
 #include <iostream>
 #include"ContactListener.h"
+#include"MultiThreadWorking.h"
 #include "Bird.h"
 #include "Pig.h"
 #include"UI.h"
 #include"StaticObject.h"
+#include<thread>
+#include<memory>
 #include <list>
+
 
 
 int main() {
@@ -46,16 +50,10 @@ int main() {
 
     }
 
-    //UI text("The text is working", "../assests/fonts/angry-birds-1.ttf", 10, sf::Vector2f(10.0,10.0), &window);
-     //UI text2("../assests/fonts/angry-birds.ttf", " Text is working ", 50, sf::Vector2f(100.0f, 100.0f));
+    //Multi Threading
+    MultiThreading testThread;
+    
 
-    // UI basic(&window);
-    // UI test;
-    // test.gettxt_Text();
-
-    //Bird birdie(world, ("../assets/Ang_Birds/birdTest.png"), sf::Vector2f(150.f, 367.f), sf::Vector2f(1.0f, 1.0f), 40.0f, 0.5f, 0.3f);
-    /* Bird bigBird(world, ("../assets/Ang_Birds/BigBird.png"), sf::Vector2f(130.f, 367.f), sf::Vector2f(1.5f, 1.5f), 70.0f, 0.2f, 0.2f);
-     Bird fastBird(world, ("../assets/Ang_Birds/YellowBird.png"), sf::Vector2f(120.f, 367.f), sf::Vector2f(1.0f, 1.0f), 20.0f, 0.7f, 0.5f);*/
      //Bird containers 
     bool birdLaunched = false; //bird is waiting to be fired
 
