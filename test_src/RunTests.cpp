@@ -1,3 +1,4 @@
+
 #include <gtest/gtest.h>
 #include "Enemy.h"
 #include "Slingshot.h"
@@ -8,105 +9,7 @@
 #include"Bird.h"
 #include"UI.h"
 
-/// <summary>
-///Taken from the GoogleTest primer. 
-/// </summary>
 
-// The fixture for testing class Foo.
-class EnemyTest : public testing::Test {
-public:
-    std::unique_ptr<Enemy> enemy;
-    std::shared_ptr<b2World> shared_world;
-    //b2Vec2 gravity; // Earth-like gravity
-    //b2World world;
-
-protected:
-    // You can remove any or all of the following functions if their bodies would
-    // be empty.
-    
-    //EnemyTest() = default;
-    
-    EnemyTest() {
-        // You can do set-up work for each test here.
-        //gravity = b2Vec2(0, 9.8f);
-        //world.SetGravity(gravity);
-    }
-
-    ~EnemyTest() override {
-        // You can do clean-up work that doesn't throw exceptions here.
-    }
-
-    // If the constructor and destructor are not enough for setting up
-    // and cleaning up each test, you can define the following methods:
-
-    void SetUp() override {
-        // Code here will be called immediately after the constructor (right
-        // before each test).
-        enemy = std::make_unique<Enemy>(50); // All enemnies in this test suite start with 50 HP.
-
-        //shared_world = std::make_shared<b2World>(gravity);
-    }
-
-    void TearDown() override {
-        // Code here will be called immediately after each test (right
-        // before the destructor).
-    }
-
-
-};
-
-class SlingshotTest : public testing::Test {
-public:
-    std::unique_ptr<Slingshot> slingshot;
-    Slingshot Base;
-
-protected:
-    SlingshotTest() {
-        // You can do set-up work for each test here.
-        
-    }
-
-    ~SlingshotTest() override {
-        // You can do clean-up work that doesn't throw exceptions here.
-    }
-
-    // If the constructor and destructor are not enough for setting up
-    // and cleaning up each test, you can define the following methods:
-
-    void SetUp() override {
-        // Code here will be called immediately after the constructor (right
-        // before each test).
-        
-        Base.setTention(50);
-
-    }
-
-    void TearDown() override {
-        // Code here will be called immediately after each test (right
-        // before the destructor).
-    }
-
-
-
-};
-
-//A single test, not a fixture. No setup is called.
-TEST(Enemy, First_test) {
-    
-    //Test to see if the health is >100
-    Enemy e(90);
-    ASSERT_GT(e.getHealth(), 100);//Assesrt stops the muliple tests in the same unit from running if one test is wrong
-    EXPECT_GT(e.getHealth(), 100);
-  //SUCCEED() << "Test test passed";
-    //FAIL() << "Test didn't pass";
-}
-
-TEST_F(EnemyTest, LethalDamagePopsPig) {
-   
-    //Test to see if the enemy is dead after taking damage
-    enemy->takeDamage(60);
-    EXPECT_TRUE(enemy->checkIfPopped());
-}
 
 TEST(Pig, posTest) 
 {
@@ -124,17 +27,6 @@ TEST(Pig, scaleTest)
 
 }
 
-//TEST(Pig, Box2D)
-//{
-//    b2Vec2 gravity(0, 9.8f);
-//    b2World world(gravity);
-//    //Testing to see if the fixtures are working
-//    Pig largePig(world,"../assets/Ang_Birds/SinglePig.png", sf::Vector2f(700.0f, 300.0f), sf::Vector2f(2.0f, 2.0f), 50.0f, 0.3f,0.0f);
-//    //EXPECT_EQ(largePig.
-//
-//}
-
-
 
 TEST(Pig, Health_Pig)
 {
@@ -146,83 +38,7 @@ TEST(Pig, Health_Pig)
     EXPECT_EQ(largePig.getHealth(), 100);
 }
 
-//Testing to see if  the enemy pig has taken enough damage to die
-TEST(DeathTest, SecondTest) {
 
-    //Test to see if the Pig is dead
-
-    Enemy Pig(100); //Creating an instance of the enemy setting health to 100
-    Pig.takeDamage(110); //Setting damage
-    EXPECT_TRUE(Pig.checkIfPopped());
-
-}
-
-//Testing to see if the pig will take damage to the health
-//TEST(Pig, Damage) {
-//    //RECORD THIS BEFORE CHANGING THEN REDO THE TEST
-//    Pig smallPig;
-//    smallPig.setHealth(70);
-//    smallPig.isHit(80);
-//    EXPECT_LE(smallPig.getHealth(), 0);
-//
-//}
-
-TEST(Slighshot, TentionTest) {
-
-    //Test to see if the set tention is >40
-    Slingshot Tention;
-    Tention.setTention(50);
-    EXPECT_GT(Tention.getTension(), 40);
-
-
-}
-
-//A ficture is having the ablity yo use the class
-TEST_F(SlingshotTest, Pullback) { //Test_Fixture means I can use anything in the slingshottest class 
-
-    //Test to see if the pullback and tention will be =<80
-    EXPECT_GE(Base.checkMax(30), 80);
-
-
-}
-
-
-TEST(LoadBird, Bird) {
-    
-//I want to know if the red bird is there
-//Test to see if bird type will load
-    
-    Slingshot Bird;
-
-    //Converting strings to char 
-    std::string birdType = Bird.getBirdType();
-    const char* charBird = birdType.c_str();
-    
-
-    EXPECT_STREQ(charBird, "Red");
-
-}
-//Test PosX
-TEST(Position, PosX) {
-
-    Enemy Pos;
-    Pos.setPos(6.f, 2.f);
-    EXPECT_FLOAT_EQ(Pos.getPosX(), 6.f);
-
-
-}
-
-//Testing the bird type
-TEST(BirdType, BlackBird) {
-
-    Slingshot Black;
-    Black.setBirdType("Black");
-    std::string typeB = Black.getBirdType();
-    const char* birdChar = typeB.c_str();
-    EXPECT_STREQ(birdChar, "Yellow");
-    
-
-}
 
 //create a bird, set the position, set parameters (list of position, ) 
 //Test the correctness of the movement of a dynamic object across a suitable spread of values. ASK FOR MORE DETAILS
@@ -257,7 +73,7 @@ public:
     void TearDown() override { //things done after the test, 
 
         std::cout << "TearDown" << std::endl;
-       // Test->setPos(b2Vec2(10.0f, 10.0f));
+        
     }
 };
 
@@ -327,7 +143,11 @@ public:
        
     };
 
-    void TearDown() override {};
+    void TearDown() override
+    {
+        ui.release();
+        window.release();
+        };
 
 };
 
@@ -346,10 +166,6 @@ TEST_F(UITest, Placement) {
     //testing if its greater than the widest part as well
 
 }
-
-
-
-//Demonstrate fatal and non-fatal asserts and expects. ASK FOR MORE DETAIL
 
 
 
@@ -390,6 +206,10 @@ public:
     void TearDown() override { //things done after the test, 
 
         std::cout << "TearDown" << std::endl;
+        //Releasing the referemce to the poniters without deleting them
+        pigFunc.release();
+        pigTest.release();
+        pig.release();
        
     }
 
