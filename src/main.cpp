@@ -42,6 +42,12 @@ int main() {
     UI T(30, "Press space to fire!!", sf::Vector2f(50.0f, 70.0f));
     std::unique_ptr<UI> ui = std::make_unique<UI>(T);
 
+
+  //  UI loadingScreenText;
+
+    //Draw imagae on screen
+
+
     std::list<std::unique_ptr<Pig>>piggieTypes; //Shared pointers of the type bird
     for (int i = 1; i < 4; i++) {
 
@@ -75,11 +81,7 @@ int main() {
     for (const auto& birds : birdData) {
         flock.push_back(std::make_unique<Bird>(world, birds.location, sf::Vector2f(150.0f, 450.0f), sf::Vector2f(1.0f, 1.0f), birds.den, birds.fric, birds.rest));
     }
-    /*for (std::string s : location) {
-
-        flock.push_back(std::make_unique<Bird>(world, s, sf::Vector2f(150.0f, 450.0f), sf::Vector2f(1.0f, 1.0f), 1.0f, 0.8f, 0.3f));
-
-    }*/
+   
 
 
 
@@ -327,6 +329,15 @@ int main() {
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
 
+
+        if (testThread.Ready() <= 10) {
+        
+            std::cout << "SPALSH SCREEN:  " << std::endl;
+            //summon the spalsh screen in here
+        
+        }
+        else {
+        
         //Render the Pigs
 
         window.draw(sf_groundVisual);
@@ -347,6 +358,8 @@ int main() {
         }
     
         window.draw(ui->getText());
+
+        }
 
      
         window.display();
