@@ -16,7 +16,7 @@ public:
 	UI(int i, std::string texT, sf::Vector2f pos) {
 		
 		
-		if (!f_font.loadFromFile("angry-birds.ttf")) {
+		if (!f_font.loadFromFile("../assets/fonts/angry-birds.ttf")) {
 			std::cout << "Error" << std::endl;
 		};
 			

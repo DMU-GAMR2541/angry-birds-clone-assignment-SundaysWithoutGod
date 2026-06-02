@@ -45,9 +45,24 @@ int main() {
 
   //  UI loadingScreenText;
 
-    //Draw imagae on screen
+    //Draw image on screen
+    //Setting the Texture of the loading screen
+    sf::Texture loadingSpriteText;
+    
+    if (!loadingSpriteText.loadFromFile("../assets/Ang_Birds/Angry_birdsSpalshScreen.jpg")) {
 
+    }
+    //Creating the sprite for the loading screena and placing the texture on the sprite
+    sf::Sprite loadingSprite;
+    loadingSprite.setTexture(loadingSpriteText);
 
+    //Setting up the parameters of the loading screen sprite
+    loadingSprite.setPosition(sf::Vector2f(0.0f,20.0f));//Setting position
+    // scale
+    loadingSprite.setScale(sf::Vector2f(1.07f, 1.1f)); // absolute scale factor
+    //loadingSprite.scale(sf::Vector2f(1.1f, 1.1f));
+
+   
     std::list<std::unique_ptr<Pig>>piggieTypes; //Shared pointers of the type bird
     for (int i = 1; i < 4; i++) {
 
@@ -330,11 +345,18 @@ int main() {
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
 
 
-        if (testThread.Ready() <= 10) {
+        if (testThread.Ready() <= 30) {
         
-            std::cout << "SPALSH SCREEN:  " << std::endl;
             //summon the spalsh screen in here
-        
+            std::cout << "SPALSH SCREEN:  " << std::endl;
+            window.draw(loadingSprite);
+            std::string s_tip1 = "Tip: Use the H key to increase impulse on the X axis:  " + std::to_string(testThread.Ready());
+           
+                 
+            UI loadingUI(30, s_tip1, sf::Vector2f(250.0f,720.0f));
+            std::unique_ptr<UI> loadUI = std::make_unique <UI>(loadingUI);
+            window.draw(loadUI->getText()); //The text is on the screen but it's not displaying properly
+            //window.draw(loadingUI.getText());
         }
         else {
         

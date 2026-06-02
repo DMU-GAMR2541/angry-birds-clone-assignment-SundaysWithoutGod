@@ -23,7 +23,7 @@ private:
     //Async is a thread that's wrapped in a helper-- it does not need to use .joinable or .join but has limited 
 
     void asyncAddition() {
-        for (int i = 0; i < 30; i++ ) {
+        for (int i = 0; i < 50; i++ ) {
 
         
             m_locks.lock();
@@ -40,7 +40,7 @@ private:
 
     void threadMultiply() {
        
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
 
         int a;
         a = 10;
@@ -56,7 +56,7 @@ private:
 
     void loading() {
         //value that increments verytime you go back through
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 50; i++) {
         
         m_locks.lock();//STEP 1---Lock AFTER the loop because if you don't it keeps locking and unlocking in the loop which is inefficient 
             i_loadingValue++;
@@ -89,8 +89,9 @@ public:
     
     int Ready() {
 
-
+       // m_locks.lock();
         return i_loadingValue;
+        //m_locks.unlock();
     };
         
 
