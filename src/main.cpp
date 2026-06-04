@@ -70,24 +70,21 @@ int main() {
         piggieTypes.push_back(std::make_unique<Pig>(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f));
         piggieTypes.front()->getBody()->GetUserData().pointer = i;
 
+
     }
 
     //Object-Pooling
-
-
-   //Game Object vector
-    std::vector <GameObject> PoolPigs;//Create the memeory pool
-    char* memory = new char[5 * sizeof(Pig)];
+    char* memory = new char[2 * sizeof(Pig)];//Create the memeory pool
 
     //Allocating memeory for the pool of pigs with the variables
     Pig* PoolPig1 = new(&memory[0 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
     Pig* PoolPig2 = new(&memory[1 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
-    Pig* PoolPig3 = new(&memory[2 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+   /* Pig* PoolPig3 = new(&memory[2 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
     Pig* PoolPig4 = new(&memory[3 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
-    Pig* PoolPig5 = new(&memory[4 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+    Pig* PoolPig5 = new(&memory[4 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);*/
 
    //New Pig memory assignement 
-    Pig* PigPool1 = new(&memory[0 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+   Pig* PigPool1 = new(&memory[0 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
 
     //Multi Threading
     MultiThreading testThread;
@@ -109,7 +106,7 @@ int main() {
     //creating the different bird types
     birdData.push_back({ "../assets/Ang_Birds/YellowBird.png", 0.5f, 0.6f, 0.3f });
     birdData.push_back({ "../assets/Ang_Birds/BigBird.png",    2.0f, 0.8f, 0.1f });
-    birdData.push_back({ "../assets/Ang_Birds/birdTest.png",   1.0f, 0.3f, 0.6f });
+    birdData.push_back({ "../assets/Ang_Birds/birdTest.png",   1.0f, 0.5f, 0.4f });
     
     for (const auto& birds : birdData) {
         flock.push_back(std::make_unique<Bird>(world, birds.location, sf::Vector2f(150.0f, 450.0f), sf::Vector2f(1.0f, 1.0f), birds.den, birds.fric, birds.rest));
@@ -281,7 +278,7 @@ int main() {
 
                 b2Vec2 vel = currentBird->getBody()->GetLinearVelocity();
               
-                if (birdLaunched && birdLaunchTimer> 1.0f && vel.Length() < 0.8f) {
+                if (birdLaunched && birdLaunchTimer> 1.0f && vel.Length() < 1.0f) {
                 
                 deleteCurrentBird = true;
                
@@ -340,6 +337,9 @@ int main() {
             }
         }
 
+  
+     
+
 
 
 
@@ -386,17 +386,17 @@ int main() {
         PoolPig1->updateSprite();
         window.draw(PoolPig1->getSprite());
 
-        PoolPig2->updateSprite();
+       PoolPig2->updateSprite();
         window.draw(PoolPig2->getSprite());
 
-        PoolPig3->updateSprite();
+       /* PoolPig3->updateSprite();
         window.draw(PoolPig3->getSprite());
 
         PoolPig4->updateSprite();
         window.draw(PoolPig4->getSprite());
 
         PoolPig5->updateSprite();
-        window.draw(PoolPig5->getSprite());
+        window.draw(PoolPig5->getSprite());*/
         
      
         for (std::unique_ptr<Pig>& p : piggieTypes) {
