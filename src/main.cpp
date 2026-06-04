@@ -34,6 +34,7 @@ int main() {
     // Create the listener instance.
     ContactListener hit;
 
+
     // Register it with the world
     world.SetContactListener(&hit);
     // Create a graphical text to display
@@ -70,6 +71,23 @@ int main() {
         piggieTypes.front()->getBody()->GetUserData().pointer = i;
 
     }
+
+    //Object-Pooling
+
+
+   //Game Object vector
+    std::vector <GameObject> PoolPigs;//Create the memeory pool
+    char* memory = new char[5 * sizeof(Pig)];
+
+    //Allocating memeory for the pool of pigs with the variables
+    Pig* PoolPig1 = new(&memory[0 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+    Pig* PoolPig2 = new(&memory[1 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+    Pig* PoolPig3 = new(&memory[2 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+    Pig* PoolPig4 = new(&memory[3 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+    Pig* PoolPig5 = new(&memory[4 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
+
+   //New Pig memory assignement 
+    Pig* PigPool1 = new(&memory[0 * sizeof(Pig)]) Pig(world, "../assets/Ang_Birds/Pig.png", sf::Vector2f(700.0f, 100.0f), sf::Vector2f(1.0f, 1.0f), 10.0f, 0.8f, 0.0f);
 
     //Multi Threading
     MultiThreading testThread;
@@ -365,13 +383,26 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
+        PoolPig1->updateSprite();
+        window.draw(PoolPig1->getSprite());
+
+        PoolPig2->updateSprite();
+        window.draw(PoolPig2->getSprite());
+
+        PoolPig3->updateSprite();
+        window.draw(PoolPig3->getSprite());
+
+        PoolPig4->updateSprite();
+        window.draw(PoolPig4->getSprite());
+
+        PoolPig5->updateSprite();
+        window.draw(PoolPig5->getSprite());
+        
      
         for (std::unique_ptr<Pig>& p : piggieTypes) {
             p->updateSprite();
             window.draw(p->getSprite());
 
-
-        }
 
         //draw all the birds in flock on the screen
         for (auto& bird : flock)
@@ -382,6 +413,8 @@ int main() {
         window.draw(ui->getText());
 
         }
+        }
+
 
      
         window.display();
